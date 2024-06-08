@@ -36,11 +36,11 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="username" class="form-control form-control-user" name="username" placeholder="{{ __('NIM') }}" value="{{ old('username') }}" required>
+                                        <input type="number" class="form-control form-control-user" name="username" placeholder="{{ __('NIM') }}" value="{{ old('username') }}" required>
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="phone_number" class="form-control form-control-user" name="phone_number" placeholder="{{ __('Nomor Telpon') }}" value="{{ old('phone_number') }}" required>
+                                        <input type="number" class="form-control form-control-user" name="phone_number" placeholder="{{ __('Nomor Telpon') }}" value="{{ old('phone_number') }}" required>
                                     </div>
 
                                     <div class="form-group">
