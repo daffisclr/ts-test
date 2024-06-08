@@ -11,7 +11,7 @@
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">{{ __('Register') }}</h1>
+                                    <h1 class="h4 text-gray-900 mb-4">{{ __('Register Alumni JTIK') }}</h1>
                                 </div>
 
                                 @if ($errors->any())
@@ -28,15 +28,19 @@
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" name="name" placeholder="{{ __('Name') }}" value="{{ old('name') }}" required autofocus>
+                                        <input type="text" class="form-control form-control-user" name="name" placeholder="{{ __('Nama Lengkap') }}" value="{{ old('name') }}" required autofocus>
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" name="last_name" placeholder="{{ __('Last Name') }}" value="{{ old('last_name') }}" required>
+                                        <input type="email" class="form-control form-control-user" name="email" placeholder="{{ __('Alamat E-Mail') }}" value="{{ old('email') }}" required>
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="email" class="form-control form-control-user" name="email" placeholder="{{ __('E-Mail Address') }}" value="{{ old('email') }}" required>
+                                        <input type="username" class="form-control form-control-user" name="username" placeholder="{{ __('NIM') }}" value="{{ old('username') }}" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="phone_number" class="form-control form-control-user" name="phone_number" placeholder="{{ __('Nomor Telpon') }}" value="{{ old('phone_number') }}" required>
                                     </div>
 
                                     <div class="form-group">

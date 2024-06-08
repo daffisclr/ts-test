@@ -13,14 +13,13 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('last_name');
-            $table->string('email')->unique()->nullable();
-            $table->string('username')->unique()->nullable();
-            $table->string('phone_number')->nullable();
+            $table->string('name'); // Nama Lengkap
+            $table->string('email')->unique()->nullable(); // Email yang digunakan di PNJ or Aktif
+            $table->string('username')->unique()->nullable(); // NIM or NIDN or NIP
+            $table->string('phone_number')->nullable(); // Nomor Telpon Aktif
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role', ['admin', 'alumni'])->default('alumni');
+            $table->enum('role', ['Admin', 'Alumni'])->default('Alumni');
             $table->rememberToken();
             $table->timestamps();
         });
