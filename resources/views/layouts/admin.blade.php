@@ -59,7 +59,7 @@
         <li class="nav-item {{ Nav::isRoute('profile') }}">
             <a class="nav-link">
                 <i class="fas fa-user-graduate"></i>
-                <span>{{ __('Data Alumni') }}</span>
+                <span>{{ __('Data Alumni JTIK') }}</span>
             </a>
         </li>
 
@@ -82,8 +82,16 @@
         <!-- Nav Item - Invite Pengguna Alumni -->
         <li class="nav-item {{ Nav::isRoute('profile') }}">
             <a class="nav-link">
-                <i class="fas fa-item-mail"></i>
+                <i class="fa-solid fa-envelopes-bulk"></i>
                 <span>{{ __('Invite Pengguna Alumni') }}</span>
+            </a>
+        </li>
+
+        <!-- Nav Item - List Pengguna Alumni -->
+        <li class="nav-item {{ Nav::isRoute('profile') }}">
+            <a class="nav-link">
+                <i class="fa-solid fa-user-tie"></i>
+                <span>{{ __('List Pengguna Alumni') }}</span>
             </a>
         </li>
 
