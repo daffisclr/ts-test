@@ -48,3 +48,7 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/about', function () {
     return view('about');
 })->name('about');
+
+Route::get('/tracer_study', function() {
+    return view('tracer_study.index');
+});
