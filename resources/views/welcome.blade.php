@@ -10,8 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{ url('asset_pnj/logo_pnj_favicon.jpg') }}" rel="icon">
-    <link href="{{ url('asset_pnj/logo_pnj_icon.jpg') }}" rel="apple-touch-icon">
+    <link href="{{ url('asset_pnj/Logo_pnj_favicon.jpg') }}" rel="icon">
+    <link href="{{ url('asset_pnj/Logo_pnj_icon.jpg') }}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link

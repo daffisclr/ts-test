@@ -20,7 +20,7 @@
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
 
     <!-- Favicon -->
-    <link href="{{ url('asset_pnj/logo_pnj_favicon.jpg') }}" rel="icon" type="image/png">
+    <link href="{{ url('asset_pnj/Logo_pnj_favicon.jpg') }}" rel="icon" type="image/png">
 </head>
 <body id="page-top">
 
