@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = User::count();
+        $users = User::where('role','Alumni')->count();
 
         $widget = [
             'users' => $users,
