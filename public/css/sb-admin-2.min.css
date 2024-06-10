@@ -12574,13 +12574,13 @@ a:focus {
 }
 
 .bg-login-image {
-    background: url(../img/cover-login.png);
+    background: url(../asset_pnj/Logo_pnj.jpg);
     background-position: center;
     background-size: cover
 }
 
 .bg-register-image {
-    background: url(../img/cover-register.png);
+    background: url(../asset_pnj/Logo_pnj.jpg);
     background-position: center;
     background-size: cover
 }
