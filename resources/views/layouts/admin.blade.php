@@ -20,7 +20,7 @@
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
 
     <!-- Favicon -->
-    <link href="{{ asset('asset_pnj/logo_pnj_favicon.jpg') }}" rel="icon" type="image/png">
+    <link href="{{ url('asset_pnj/logo_pnj_favicon.jpg') }}" rel="icon" type="image/png">
 </head>
 <body id="page-top">
 
@@ -56,8 +56,8 @@
         </div>
 
         <!-- Nav Item - Alumni -->
-        <li class="nav-item {{ Nav::isRoute('profile') }}">
-            <a class="nav-link">
+        <li class="nav-item {{ Nav::isRoute('alumni.index') }}">
+            <a class="nav-link" href="{{ route('alumni.index') }}">
                 <i class="fas fa-user-graduate"></i>
                 <span>{{ __('Data Alumni JTIK') }}</span>
             </a>
@@ -80,16 +80,16 @@
         </div>
 
         <!-- Nav Item - Invite Pengguna Alumni -->
-        <li class="nav-item {{ Nav::isRoute('profile') }}">
-            <a class="nav-link">
+        <li class="nav-item {{ Nav::isRoute('pengguna-alumni.invitation') }}">
+            <a class="nav-link" href="{{ route('pengguna-alumni.invitation') }}">
                 <i class="fa-solid fa-envelopes-bulk"></i>
                 <span>{{ __('Invite Pengguna Alumni') }}</span>
             </a>
         </li>
 
         <!-- Nav Item - List Pengguna Alumni -->
-        <li class="nav-item {{ Nav::isRoute('profile') }}">
-            <a class="nav-link">
+        <li class="nav-item {{ Nav::isRoute('pengguna-alumni.index') }}">
+            <a class="nav-link" href="{{ route('pengguna-alumni.index') }}">
                 <i class="fa-solid fa-user-tie"></i>
                 <span>{{ __('List Pengguna Alumni') }}</span>
             </a>
