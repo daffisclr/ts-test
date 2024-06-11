@@ -22,9 +22,11 @@
                                 <th>Nomor Telpon</th>
                                 <th>Nama Perusahaan</th>
                                 <th>Jabatan</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                        </tbody>
                     </table>
                 </div>
             </div>

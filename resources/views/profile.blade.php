@@ -176,7 +176,7 @@
                                                 <option value="D4"
                                                     {{ old('jenjang') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->jenjang == 'D4' ? 'selected' : '') : '') }}>
                                                     D4</option>
-                                                <option value="D4"
+                                                <option value="D1"
                                                     {{ old('jenjang') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->jenjang == 'D1' ? 'selected' : '') : '') }}>
                                                     D1</option>
                                             </select>
