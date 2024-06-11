@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alumni;
+use App\Models\Prodi;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -47,6 +49,30 @@ class ProfileController extends Controller
         }
 
         $user->save();
+
+        if (
+            $request->has('prodi') &&
+            $request->has('jenjang') &&
+            $request->has('jenis_kelamin') &&
+            $request->has('agama') &&
+            $request->has('tahun_masuk') &&
+            $request->has('tahun_lulus')
+        ) {
+            Alumni::updateOrCreate(
+                [
+                    'user_id' => $user->id
+                ],
+                [
+                    'user_id' => $user->id,
+                    'prodi' => $request->prodi,
+                    'jenjang' => $request->jenjang,
+                    'jenis_kelamin' => $request->jenis_kelamin,
+                    'agama' => $request->agama,
+                    'tahun_masuk' => $request->tahun_masuk,
+                    'tahun_lulus' => $request->tahun_lulus,
+                ]
+            );
+        }
 
         return redirect()->route('profile')->withSuccess('Profile updated successfully.');
     }
