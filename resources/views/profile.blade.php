@@ -210,11 +210,11 @@
                                                 <option value="Islam"
                                                     {{ old('agama') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->agama == 'Islam' ? 'selected' : '') : '') }}>
                                                     Islam</option>
-                                                <option value="Kristen Protestan"
-                                                    {{ old('agama') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->agama == 'Kristen Protestan' ? 'selected' : '') : '') }}>
+                                                <option value="Protestan"
+                                                    {{ old('agama') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->agama == 'Protestan' ? 'selected' : '') : '') }}>
                                                     Kristen Protestan</option>
-                                                <option value="Kristen Katolik"
-                                                    {{ old('agama') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->agama == 'Kristen Katolik' ? 'selected' : '') : '') }}>
+                                                <option value="Katolik"
+                                                    {{ old('agama') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->agama == 'Katolik' ? 'selected' : '') : '') }}>
                                                     Kristen Katolik</option>
                                                 <option value="Hindu"
                                                     {{ old('agama') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->agama == 'Hindu' ? 'selected' : '') : '') }}>
