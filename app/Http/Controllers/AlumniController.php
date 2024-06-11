@@ -26,4 +26,9 @@ class AlumniController extends Controller
     {
 
     }
+
+    public function export_pdf()
+    {
+
+    }
 }
