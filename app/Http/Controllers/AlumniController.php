@@ -15,4 +15,11 @@ class AlumniController extends Controller
 
         return view('alumni.index',compact('data'));
     }
+
+    public function show()
+    {
+        $data = User::with('alumni')->where('role', 'Alumni')->orderBy('id', 'desc')->get();
+
+        return view('alumni.includes.show', compact('data'));
+    }
 }
