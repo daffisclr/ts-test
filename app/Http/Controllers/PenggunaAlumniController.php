@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\Invite;
+
+use App\Mail\InvitePenggunaAlumni;
 use App\Models\PenggunaAlumni;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -45,6 +46,7 @@ class PenggunaAlumniController extends Controller
             'company_contact' => $request->company_contact,
         ]);
 
+        Mail::to($request->email)->send(new InvitePenggunaAlumni());
 
         //redirect to index
         return redirect()->route('pengguna-alumni.invitation')->with(['success' => 'Email Telah Terkirim!']);
