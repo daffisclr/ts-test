@@ -11,13 +11,14 @@
 
         <div class="card-body">
 
-            <form method="POST" action="" autocomplete="off">
+            <form method="POST" action="{{ route('pengguna-alumni.send') }}" autocomplete="off">
+                @csrf
                 <div class="pl-lg-4">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="name">Nama Pengguna Alumni<span class="small text-danger">*</span></label>
-                                <input type="text" id="name" class="form-control" name="name" placeholder="Name">
+                                <input value="{{ old('name') }}" type="text" id="name" class="form-control" name="name" placeholder="Name">
                             </div>
                         </div>
                     </div>
@@ -25,15 +26,15 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="email">Email Pengguna Alumni<span class="small text-danger">*</span></label>
-                                <input type="email" id="email" class="form-control" name="email" placeholder="example@example.com">
+                                <input value="{{ old('email') }}" type="email" id="email" class="form-control" name="email" placeholder="example@example.com">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label class="form-control-label" for="phone_number">Nomor Telpon Pengguna Alumni<span class="small text-danger">*</span></label>
-                                <input type="number" id="phone_number" class="form-control" name="phone_number" placeholder="Nomor Telpon Aktif">
+                                <label class="form-control-label" for="phone">Nomor Telpon Pengguna Alumni<span class="small text-danger">*</span></label>
+                                <input value="{{ old('phone') }}" type="number" id="phone" class="form-control" name="phone" placeholder="Nomor Telpon Aktif">
                             </div>
                         </div>
                     </div>
@@ -41,23 +42,23 @@
                         <div class="col-lg-12">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="company">Nama Instansi/Perusahaan/Lembaga<span class="small text-danger">*</span></label>
-                                <input type="text" id="company" class="form-control" name="company" placeholder="Nama Perusahaan atau Instansi">
+                                <input value="{{ old('company') }}" type="text" id="company" class="form-control" name="company" placeholder="Nama Perusahaan atau Instansi">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group focused">
-                                <label class="form-control-label" for="status">Jabatan Pengguna Alumni<span class="small text-danger">*</span></label>
-                                <input type="text" id="status" class="form-control" name="status" placeholder="ex: Manager atau Supervisor atau CEO">
+                                <label class="form-control-label" for="position">Jabatan Pengguna Alumni<span class="small text-danger">*</span></label>
+                                <input value="{{ old('position') }}" type="text" id="position" class="form-control" name="position" placeholder="ex: Manager atau Supervisor atau CEO">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group focused">
-                                <label class="form-control-label" for="status">Email Instansi/Perusahaan/Lembaga<span class="small text-danger">*</span></label>
-                                <input type="email" id="status" class="form-control" name="company_email" placeholder="ex: sample@gov.id atau sample@edu.ac.id">
+                                <label class="form-control-label" for="company_contact">Email Instansi/Perusahaan/Lembaga<span class="small text-danger">*</span></label>
+                                <input value="{{ old('company_contact') }}" type="email" id="company_contact" class="form-control" name="company_contact" placeholder="ex: sample@gov.id atau sample@edu.ac.id">
                             </div>
                         </div>
                     </div>
