@@ -105,7 +105,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="name"><b>Harapan/saran dalam rangka peningkatan kualitas lulusan JTIK</b></label>
+                                <label for="name"><b>Harapan/saran dalam rangka peningkatan kualitas lulusan
+                                        JTIK</b></label>
                                 <textarea class="form-control" name="message" rows="10" required></textarea>
                             </div>
                             <div class="my-3">

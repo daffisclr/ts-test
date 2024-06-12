@@ -61,7 +61,7 @@
                                                 <th>{{ $alumniusers->position }}</th>
                                                 <th>{{ $alumniusers->company_contact }}</th>
                                                 <td class="text-center">
-                                                <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                                                    <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
                                                 </td>
                                             </tr>
                                         @empty

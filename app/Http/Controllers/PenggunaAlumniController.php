@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Invite;
 use App\Models\PenggunaAlumni;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class PenggunaAlumniController extends Controller
@@ -42,6 +44,7 @@ class PenggunaAlumniController extends Controller
             'position'        => $request->position,
             'company_contact' => $request->company_contact,
         ]);
+
 
         //redirect to index
         return redirect()->route('pengguna-alumni.invitation')->with(['success' => 'Email Telah Terkirim!']);
