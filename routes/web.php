@@ -20,6 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/survey_pengguna', function (){
+    return view('pengguna_alumni.survey');
+});
+
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {

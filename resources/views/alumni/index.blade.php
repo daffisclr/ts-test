@@ -39,9 +39,12 @@
                                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Jenjang: activate to sort column ascending"
                                                 style="width: 75px;">Jenjang</th>
+                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                                colspan="1" aria-label="Tahun Lulus: activate to sort column ascending"
+                                                style="width: 67px;">Angkatan</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Tahun Lulus: activate to sort column ascending"
-                                                style="width: 67px;">Tahun Lulus</th>
+                                                style="width: 67px;">Lulusan</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Tahun Lulus: activate to sort column ascending"
                                                 style="width: 67px;">Action</th>
@@ -50,11 +53,12 @@
                                     @foreach ($data as $data)
                                         <tbody>
                                             <tr class="odd">
-                                                <th scope="row">{{ $loop->iteration }}</th>
+                                                <th>{{ $loop->iteration }}</th>
                                                 <td>{{ $data->name }}</td>
                                                 <td>{{ $data->username }}</td>
                                                 <td>{{ $data->alumni != null ? $data->alumni->prodi : '-' }}</td>
                                                 <td>{{ $data->alumni != null ? $data->alumni->jenjang : '-' }}</td>
+                                                <td>{{ $data->alumni != null ? $data->alumni->tahun_masuk : '-' }}</td>
                                                 <td>{{ $data->alumni != null ? $data->alumni->tahun_lulus : '-' }}</td>
                                                 <td><button class="btn btn-primary btn-sm" data-toggle="modal"
                                                         data-target="#modal-detail-{{ $data->id }}">
