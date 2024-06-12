@@ -56,6 +56,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
+            @if (auth()->user()->role == 'Admin')
             <!-- Heading -->
             <div class="sidebar-heading">
                 {{ __('Alumni') }}
@@ -103,6 +104,7 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
+            @endif
 
             <!-- Heading -->
             <div class="sidebar-heading">

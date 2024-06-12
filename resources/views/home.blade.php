@@ -18,6 +18,7 @@
         </div>
     @endif
 
+    @if (auth()->user()->role == 'Admin')
     <div class="row">
         <!-- Users -->
         <div class="col-xl-3 col-md-6 mb-4">
@@ -36,6 +37,7 @@
             </div>
         </div>
     </div>
+    @endif
 
     <div class="row">
 
