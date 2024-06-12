@@ -42,7 +42,7 @@ Route::middleware(['auth'])->group(function () {
     Route::controller(PenggunaAlumniController::class)->as('pengguna-alumni.')->group(function () {
         Route::get('invite_pengguna_alumni', 'invitation')->name('invitation');
         Route::post('send_pengguna_alumni', 'store')->name('send');
-        Route::delete('delete_pengguna_alumni', 'destroy')->name('destroy');
+        Route::post('delete_pengguna_alumni/{id}', 'destroy')->name('destroy');
         Route::get('list_pengguna_alumni', 'index')->name('index');
     });
 
