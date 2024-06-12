@@ -27,7 +27,7 @@ class PostMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Post Mail',
+            subject: 'Undangan Pengisian Survey Pengguna Alumni JTIK',
         );
     }
 
