@@ -40,7 +40,7 @@ class AlumniController extends Controller
             'users' => $users
         ];
 
-        $pdf = PDF::loadView('AlumniPDF', $data);
+        $pdf = PDF::loadView('pdf.AlumniPDF', $data);
         return $pdf->download('listalumnijtik.pdf');
 
         return redirect()->route('alumni.index')->withSuccess('PDF downloaded successfully.');
