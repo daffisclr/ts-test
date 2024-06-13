@@ -154,13 +154,13 @@
                                                 <option value="Teknik Informatika"
                                                     {{ old('prodi') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->prodi == 'Teknik Informatika' ? 'selected' : '') : '') }}>
                                                     Teknik Informatika</option>
-                                                    <option value="Teknik Multimedia dan Jaringan"
+                                                <option value="Teknik Multimedia dan Jaringan"
                                                     {{ old('prodi') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->prodi == 'Teknik Multimedia dan Jaringan' ? 'selected' : '') : '') }}>
                                                     Teknik Multimedia dan Jaringan</option>
-                                                    <option value="Teknik Multimedia Digital"
+                                                <option value="Teknik Multimedia Digital"
                                                     {{ old('prodi') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->prodi == 'Teknik Multimedia Digital' ? 'selected' : '') : '') }}>
                                                     Teknik Multimedia Digital</option>
-                                                    <option value="Teknik Komputer dan Jaringan"
+                                                <option value="Teknik Komputer dan Jaringan"
                                                     {{ old('prodi') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->prodi == 'Teknik Komputer dan Jaringan' ? 'selected' : '') : '') }}>
                                                     Teknik Komputer dan Jaringan</option>
                                             </select>
@@ -210,11 +210,11 @@
                                                 <option value="Islam"
                                                     {{ old('agama') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->agama == 'Islam' ? 'selected' : '') : '') }}>
                                                     Islam</option>
-                                                <option value="Protestan"
-                                                    {{ old('agama') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->agama == 'Protestan' ? 'selected' : '') : '') }}>
+                                                <option value="Kristen Protestan"
+                                                    {{ old('agama') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->agama == 'Kristen Protestan' ? 'selected' : '') : '') }}>
                                                     Kristen Protestan</option>
-                                                <option value="Katolik"
-                                                    {{ old('agama') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->agama == 'Katolik' ? 'selected' : '') : '') }}>
+                                                <option value="Kristen Katolik"
+                                                    {{ old('agama') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->agama == 'Kristen Katolik' ? 'selected' : '') : '') }}>
                                                     Kristen Katolik</option>
                                                 <option value="Hindu"
                                                     {{ old('agama') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->agama == 'Hindu' ? 'selected' : '') : '') }}>
@@ -233,12 +233,29 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group focused">
-                                            <label class="form-control-label" for="name">Tahun Masuk<span
+                                            <label class="form-control-label" for="name">Angkatan<span
                                                     class="small text-danger">*</span></label>
-                                            <input type="date" class="form-control" id="tahun_masuk"
-                                                name="tahun_masuk"
-                                                value="{{ old('tahun_masuk') ?? (Auth::user()->Alumni != null ? Auth::user()->Alumni->tahun_masuk : '') }}"
-                                                required>
+                                            <select type="option" class="form-control" id="tahun_masuk"
+                                                name="tahun_masuk" required>
+                                                <option value="2014"
+                                                    {{ old('2014') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->tahun_masuk == '2014' ? 'selected' : '') : '') }}>
+                                                    2014</option>
+                                                <option value="2015"
+                                                    {{ old('2015') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->tahun_masuk == '2015' ? 'selected' : '') : '') }}>
+                                                    2015</option>
+                                                <option value="2016"
+                                                    {{ old('2016') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->tahun_masuk == '2016' ? 'selected' : '') : '') }}>
+                                                    2016</option>
+                                                <option value="2017"
+                                                    {{ old('2017') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->tahun_masuk == '2017' ? 'selected' : '') : '') }}>
+                                                    2017</option>
+                                                <option value="2018"
+                                                    {{ old('2018') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->tahun_masuk == '2018' ? 'selected' : '') : '') }}>
+                                                    2018</option>
+                                                <option value="2019"
+                                                    {{ old('2019') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->tahun_masuk == '2019' ? 'selected' : '') : '') }}>
+                                                    2019</option>
+                                            </select>
                                         </div>
                                     </div>
 
@@ -246,10 +263,27 @@
                                         <div class="form-group focused">
                                             <label class="form-control-label" for="name">Tahun Lulus<span
                                                     class="small text-danger">*</span></label>
-                                            <input type="date" class="form-control" id="tahun_lulus"
-                                                name="tahun_lulus"
-                                                value="{{ old('tahun_lulus') ?? (Auth::user()->Alumni != null ? Auth::user()->Alumni->tahun_lulus : '') }}"
-                                                required>
+                                            <select type="option" class="form-control" id="tahun_lulus"
+                                                name="tahun_lulus" required>
+                                                <option value="2018"
+                                                    {{ old('2018') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->tahun_lulus == '2018' ? 'selected' : '') : '') }}>
+                                                    2018</option>
+                                                <option value="2019"
+                                                    {{ old('2019') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->tahun_lulus == '2019' ? 'selected' : '') : '') }}>
+                                                    2019</option>
+                                                <option value="2020"
+                                                    {{ old('2020') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->tahun_lulus == '2020' ? 'selected' : '') : '') }}>
+                                                    2020</option>
+                                                <option value="2021"
+                                                    {{ old('2021') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->tahun_lulus == '2021' ? 'selected' : '') : '') }}>
+                                                    2021</option>
+                                                <option value="2022"
+                                                    {{ old('2022') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->tahun_lulus == '2022' ? 'selected' : '') : '') }}>
+                                                    2022</option>
+                                                <option value="2023"
+                                                    {{ old('2023') ?? (Auth::user()->Alumni != null ? (Auth::user()->Alumni->tahun_lulus == '2023' ? 'selected' : '') : '') }}>
+                                                    2023</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

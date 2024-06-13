@@ -113,11 +113,11 @@
                                                                 <input value="{{ $data->alumni != null ? $data->alumni->agama : '-' }}" type="text" class="form-control" id="lead_id" readonly>
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="lead_id" class="col-form-label">Tahun Masuk Alumni:</label>
+                                                                <label for="lead_id" class="col-form-label">Angkatan:</label>
                                                                 <input value="{{ $data->alumni != null ? $data->alumni->tahun_masuk : '-' }}" type="text" class="form-control" id="lead_id" readonly>
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="lead_id" class="col-form-label">Tahun Lulus Alumni:</label>
+                                                                <label for="lead_id" class="col-form-label">Lulusan:</label>
                                                                 <input value="{{ $data->alumni != null ? $data->alumni->tahun_lulus : '-' }}" type="text" class="form-control" id="lead_id" readonly>
                                                             </div>
                                                     </div>

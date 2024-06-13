@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('prodi');
             $table->string('jenjang');
             $table->enum('jenis_kelamin', ['Laki-Laki', 'Perempuan']);
-            $table->enum('agama', ['Islam', 'Protestan', 'Katolik', 'Hindu', 'Buddha', 'Khonghucu']);
-            $table->date('tahun_masuk');
-            $table->date('tahun_lulus');
+            $table->enum('agama', ['Islam', 'Kristen Protestan', 'Kristen Katolik', 'Hindu', 'Buddha', 'Khonghucu']);
+            $table->string('tahun_masuk');
+            $table->string('tahun_lulus');
             $table->timestamps();
         });
     }
