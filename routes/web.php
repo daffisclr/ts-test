@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlumniController;
+use App\Http\Controllers\KuesionerController;
 use App\Http\Controllers\PenggunaAlumniController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -48,6 +49,9 @@ Route::middleware(['auth'])->group(function () {
 
 
     // Middleware Tracer Study
+    Route::controller(KuesionerController::class)->as('tracer-study.')->group(function () {
+        Route::get('kuesioner_tracer_study', 'ShowKuesioner')->name('kuesioner');
+    });
 });
 
 Route::get('/about', function () {
