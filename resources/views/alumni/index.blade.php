@@ -9,6 +9,25 @@
             For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official
                 DataTables documentation</a>.</p>
 
+        @if (session('success'))
+            <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
+        @if ($errors->any())
+            <div class="alert alert-danger border-left-danger" role="alert">
+                <ul class="pl-4 my-2">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -18,7 +37,8 @@
                 <a href="{{ route('alumni.pdf') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                     <i class="fas fa-download fa-sm text-white-50"></i> Generate PDF
                 </a>
-                <br><hr>
+                <br>
+                <hr>
                 <div class="table-responsive">
                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                         <div class="row">
@@ -43,7 +63,7 @@
                                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Jenjang: activate to sort column ascending"
                                                 style="width: 75px;">Jenjang</th>
-                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Tahun Lulus: activate to sort column ascending"
                                                 style="width: 67px;">Angkatan</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
@@ -70,8 +90,8 @@
                                                     </button></td>
                                             </tr>
                                         </tbody>
-                                        <div class="modal fade" id="modal-detail-{{ $data->id }}" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="modal-detail-{{ $data->id }}" tabindex="-1"
+                                            role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -85,44 +105,76 @@
                                                     <div class="modal-body">
                                                         <form>
                                                             <div class="mb-3">
-                                                                <label for="lead_id" class="col-form-label">Nama Alumni:</label>
-                                                                <input value="{{ $data->name }}" type="text" class="form-control" id="lead_id" readonly>
+                                                                <label for="lead_id" class="col-form-label">Nama
+                                                                    Alumni:</label>
+                                                                <input value="{{ $data->name }}" type="text"
+                                                                    class="form-control" id="lead_id" readonly>
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="lead_id" class="col-form-label">NIM Alumni:</label>
-                                                                <input value="{{ $data->username }}" type="text" class="form-control" id="lead_id" readonly>
+                                                                <label for="lead_id" class="col-form-label">NIM
+                                                                    Alumni:</label>
+                                                                <input value="{{ $data->username }}" type="text"
+                                                                    class="form-control" id="lead_id" readonly>
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="lead_id" class="col-form-label">Email Alumni:</label>
-                                                                <input value="{{ $data->email }}" type="text" class="form-control" id="lead_id" readonly>
+                                                                <label for="lead_id" class="col-form-label">Email
+                                                                    Alumni:</label>
+                                                                <input value="{{ $data->email }}" type="text"
+                                                                    class="form-control" id="lead_id" readonly>
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="lead_id" class="col-form-label">Nomor Telpon Alumni:</label>
-                                                                <input value="{{ $data->phone_number }}" type="text" class="form-control" id="lead_id" readonly>
+                                                                <label for="lead_id" class="col-form-label">Nomor Telpon
+                                                                    Alumni:</label>
+                                                                <input value="{{ $data->phone_number }}" type="text"
+                                                                    class="form-control" id="lead_id" readonly>
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="lead_id" class="col-form-label">Prodi Alumni:</label>
-                                                                <input value="{{ $data->alumni != null ? $data->alumni->prodi : '-' }}" type="text" class="form-control" id="lead_id" readonly>
+                                                                <label for="lead_id" class="col-form-label">Prodi
+                                                                    Alumni:</label>
+                                                                <input
+                                                                    value="{{ $data->alumni != null ? $data->alumni->prodi : '-' }}"
+                                                                    type="text" class="form-control" id="lead_id"
+                                                                    readonly>
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="lead_id" class="col-form-label">Jenjang Alumni:</label>
-                                                                <input value="{{ $data->alumni != null ? $data->alumni->jenjang : '-' }}" type="text" class="form-control" id="lead_id" readonly>
+                                                                <label for="lead_id" class="col-form-label">Jenjang
+                                                                    Alumni:</label>
+                                                                <input
+                                                                    value="{{ $data->alumni != null ? $data->alumni->jenjang : '-' }}"
+                                                                    type="text" class="form-control" id="lead_id"
+                                                                    readonly>
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="lead_id" class="col-form-label">Jenis Kelamin Alumni:</label>
-                                                                <input value="{{ $data->alumni != null ? $data->alumni->jenis_kelamin : '-' }}" type="text" class="form-control" id="lead_id" readonly>
+                                                                <label for="lead_id" class="col-form-label">Jenis Kelamin
+                                                                    Alumni:</label>
+                                                                <input
+                                                                    value="{{ $data->alumni != null ? $data->alumni->jenis_kelamin : '-' }}"
+                                                                    type="text" class="form-control" id="lead_id"
+                                                                    readonly>
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="lead_id" class="col-form-label">Agama Alumni:</label>
-                                                                <input value="{{ $data->alumni != null ? $data->alumni->agama : '-' }}" type="text" class="form-control" id="lead_id" readonly>
+                                                                <label for="lead_id" class="col-form-label">Agama
+                                                                    Alumni:</label>
+                                                                <input
+                                                                    value="{{ $data->alumni != null ? $data->alumni->agama : '-' }}"
+                                                                    type="text" class="form-control" id="lead_id"
+                                                                    readonly>
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="lead_id" class="col-form-label">Angkatan:</label>
-                                                                <input value="{{ $data->alumni != null ? $data->alumni->tahun_masuk : '-' }}" type="text" class="form-control" id="lead_id" readonly>
+                                                                <label for="lead_id"
+                                                                    class="col-form-label">Angkatan:</label>
+                                                                <input
+                                                                    value="{{ $data->alumni != null ? $data->alumni->tahun_masuk : '-' }}"
+                                                                    type="text" class="form-control" id="lead_id"
+                                                                    readonly>
                                                             </div>
                                                             <div class="mb-3">
-                                                                <label for="lead_id" class="col-form-label">Lulusan:</label>
-                                                                <input value="{{ $data->alumni != null ? $data->alumni->tahun_lulus : '-' }}" type="text" class="form-control" id="lead_id" readonly>
+                                                                <label for="lead_id"
+                                                                    class="col-form-label">Lulusan:</label>
+                                                                <input
+                                                                    value="{{ $data->alumni != null ? $data->alumni->tahun_lulus : '-' }}"
+                                                                    type="text" class="form-control" id="lead_id"
+                                                                    readonly>
                                                             </div>
                                                     </div>
                                                     <div class="modal-footer">

@@ -48,7 +48,7 @@ class PenggunaAlumniController extends Controller
         Mail::to($request->email)->send(new PostMail($request));
 
         //redirect to index
-        return redirect()->route('pengguna-alumni.invitation')->with(['success' => 'Email Telah Terkirim!']);
+        return redirect()->route('pengguna-alumni.invitation')->with(['success' => 'Email Telah Berhasil Terkirim!']);
     }
 
     public function destroy($id): RedirectResponse
