@@ -30,6 +30,7 @@ class HomeController extends Controller
             'users' => $users,
             //...
         ];
+        $count_answer = 0;
 
         return view('home', compact('widget'));
     }

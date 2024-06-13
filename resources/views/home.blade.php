@@ -19,24 +19,25 @@
     @endif
 
     @if (auth()->user()->role == 'Admin')
-    <div class="row">
-        <!-- Users -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">{{ __('Alumni') }}</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $widget['users'] }}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-users fa-2x text-gray-300"></i>
+        <div class="row">
+            <!-- Users -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">{{ __('Alumni') }}
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $widget['users'] }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-users fa-2x text-gray-300"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     @endif
 
     <div class="row">
@@ -53,10 +54,14 @@
                         <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
                             src="{{ asset('img/svg/undraw_editable_dywm.svg') }}" alt="">
                     </div>
-                    <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow"
-                            href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images
-                        that you can use completely free and without attribution!</p>
-                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw →</a>
+                    <h4 class="fw-bold text-center mt-5">
+                        Selamat Datang <span class="font-weight-bold">{{ ucfirst(auth()->user()->name) }}</span> di Aplikasi
+                        Tracer Study Jurusan Teknik Informatika dan Komputer Politeknik Negeri Jakarta
+                    </h4>
+
+                    <div class="text-center">
+                        <a href="{{ route('profile') }}" class="btn btn-primary" role="button">LENGKAPI DATA</a>
+                    </div>
                 </div>
             </div>
         </div>
