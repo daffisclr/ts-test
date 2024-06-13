@@ -45,7 +45,7 @@ class PenggunaAlumniController extends Controller
         //     'company_contact' => $request->company_contact,
         // ]);
 
-        Mail::to($request->email)->send(new PostMail());
+        Mail::to($request->email)->send(new PostMail($request));
 
         //redirect to index
         return redirect()->route('pengguna-alumni.invitation')->with(['success' => 'Email Telah Terkirim!']);

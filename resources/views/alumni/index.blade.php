@@ -15,6 +15,10 @@
                 <h6 class="m-0 font-weight-bold text-primary">Data Alumni</h6>
             </div>
             <div class="card-body">
+                <a href="{{ route('alumni.pdf') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    <i class="fas fa-download fa-sm text-white-50"></i> Generate PDF
+                </a>
+                <br><hr>
                 <div class="table-responsive">
                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                         <div class="row">
