@@ -36,14 +36,14 @@ class PenggunaAlumniController extends Controller
             'company_contact' => 'required|string|max:255',
         ]);
 
-        // PenggunaAlumni::create([
-        //     'name'            => $request->name,
-        //     'email'           => $request->email,
-        //     'phone'           => $request->phone,
-        //     'company'         => $request->company,
-        //     'position'        => $request->position,
-        //     'company_contact' => $request->company_contact,
-        // ]);
+        PenggunaAlumni::create([
+            'name'            => $request->name,
+            'email'           => $request->email,
+            'phone'           => $request->phone,
+            'company'         => $request->company,
+            'position'        => $request->position,
+            'company_contact' => $request->company_contact,
+        ]);
 
         Mail::to($request->email)->send(new PostMail($request));
 

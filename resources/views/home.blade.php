@@ -62,6 +62,14 @@
                     <div class="text-center">
                         <a href="{{ route('profile') }}" class="btn btn-primary" role="button">LENGKAPI DATA</a>
                     </div>
+
+                    @if (auth()->user()->role == 'Alumni')
+                    <br><hr>
+
+                    <div class="text-center">
+                        <a href="{{ route('tracer-study.kuesioner') }}" class="btn btn-primary" role="button">ISI KUESIONER</a>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>
