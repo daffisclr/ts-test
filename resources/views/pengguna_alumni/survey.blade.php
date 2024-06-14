@@ -75,43 +75,33 @@
         </section><!-- End Breadcrumbs -->
 
         <!-- ======= Contact Section ======= -->
-        <section id="contact" class="contact">
+        <section id="penggunaalumni" class="contact">
             <div class="container" data-aos="fade-up">
                 <div class="row">
                     <div class="col-lg-12 mt-5 mt-lg-0 d-flex align-items-stretch">
-                        <form action="forms/contact.php" method="" role="form" class="php-email-form">
+                        <form action="" method="post" role="form" class="php-email-form">
                             <div class="row">
                                 <div class="form-group col-md-12">
                                     <label for="name"><b>Nama Pengguna Alumni</b></label>
                                     <input type="text" name="name" class="form-control" id="name" required>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="form-group col-md-12">
                                     <label for="name"><b>Nama Instansi/Perusahaan/Lembaga</b></label>
                                     <input type="text" name="name" class="form-control" id="name" required>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="form-group col-md-12">
                                     <label for="name"><b>Nama Pengguna Alumni</b></label>
                                     <input type="text" name="name" class="form-control" id="name" required>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="form-group col-md-12">
                                     <label for="name"><b>Jabatan Pengguna Alumni</b></label>
                                     <input type="text" name="name" class="form-control" id="name" required>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="form-group col-md-12">
                                     <label for="name"><b>Nama Alumni JTIK yang dinilai</b></label>
                                     <input type="text" name="name" class="form-control" id="name"
                                         required>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="name"><b>Prodi</b></label>
                                     <select id="p_alumni_program" name="alumni_program" class="form-control"
@@ -132,20 +122,76 @@
                                         <option value="2">D4</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="form-group col-md-12">
-                                    <label for="name"><b>Angkatan</b></label>
-                                    <select id="p_alumni_program" name="alumni_program" class="form-control"
+                                    <label for="name"><b>Lulusan</b></label>
+                                    <select id="p_alumni_lulusan" name="alumni_program" class="form-control"
                                         required>
                                         <option selected="">Choose...</option>
+                                        <option value="1">2019</option>
+                                        <option value="2">2020</option>
+                                        <option value="2">2021</option>
+                                        <option value="2">2022</option>
+                                        <option value="2">2023</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <label for="name"><b>Kesesuaian Keterampilan Lulusan</b></label>
                                 <p>Skor 1-5 (1 sangat rendah - 5 sangat tinggi)</p>
                             </div>
+
+                            {{-- Integritas (etika & moral) --}}
+                            <div class="row">
+                                <label style="text-align: center" for="name"><b>Integritas (Etika & Moral)</b></label>
+                                <input type="range" class="form-range" min="1" max="5" id="customRange2">
+                            </div>
+
+                            {{-- Keahlian pada Bidang Ilmu (kompetensi utama) --}}
+                            <div class="row">
+                                <label style="text-align: center" for="name"><b>Keahlian pada Bidang Ilmu (kompetensi utama)</b></label>
+                                <input type="range" class="form-range" min="1" max="5" id="customRange2">
+                            </div>
+
+                            {{-- Kerjasama dalam tim --}}
+                            <div class="row">
+                                <label style="text-align: center" for="name"><b>Kerja sama dalam tim</b></label>
+                                <input type="range" class="form-range" min="1" max="5" id="customRange2">
+                            </div>
+
+                            {{-- Kemampuan dalam berbahasa asing --}}
+                            <div class="row">
+                                <label style="text-align: center" for="name"><b>Kemampuan dalam berbahasa asing</b></label>
+                                <input type="range" class="form-range" min="1" max="5" id="customRange2">
+                            </div>
+
+                            {{-- Kemampuan komunikasi --}}
+                            <div class="row">
+                                <label style="text-align: center" for="name"><b>Kemampuan Komunikasi</b></label>
+                                <input type="range" class="form-range" min="1" max="5" id="customRange2">
+                            </div>
+
+                            {{-- Penggunaan Teknologi Informasi --}}
+                            <div class="row">
+                                <label style="text-align: center" for="name"><b>Penggunaan Teknologi Informasi</b></label>
+                                <input type="range" class="form-range" min="1" max="5" id="customRange2">
+                            </div>
+
+                            {{-- Pengembangan Diri --}}
+                            <div class="row">
+                                <label style="text-align: center" for="name"><b>Pengembangan Diri</b></label>
+                                <input type="range" class="form-range" min="1" max="5" id="customRange2">
+                            </div>
+
+                            {{-- Keluasan Wawasan antar disiplin ilmu --}}
+                            <div class="row">
+                                <label style="text-align: center" for="name"><b>Keluasan Wawasan antar disiplin ilmu</b></label>
+                                <input type="range" class="form-range" min="1" max="5" id="customRange2">
+                            </div>
+
+                            {{-- Kepemimpinan --}}
+                            <div class="row">
+                                <label style="text-align: center" for="name"><b>Kepemimpinan</b></label>
+                                <input type="range" class="form-range" min="1" max="5" id="customRange2">
+                            </div>
+
                             <br>
                             <div class="form-group">
                                 <label for="name"><b>Harapan/saran dalam rangka peningkatan kualitas lulusan

@@ -13,7 +13,7 @@
 
     ## Email Perusahaan: {{ $user->company_contact }}
 
-    <x-mail::button :url="''">
+    <x-mail::button :url="'{{ URL::temporary }}'">
         Isi Survey Pengguna Alumni
     </x-mail::button>
 
