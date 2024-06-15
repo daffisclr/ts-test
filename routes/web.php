@@ -52,6 +52,8 @@ Route::middleware(['auth'])->group(function () {
     // Middleware Tracer Study
     Route::controller(KuesionerController::class)->as('tracer-study.')->group(function () {
         Route::get('kuesioner_tracer_study', 'ShowKuesioner')->name('kuesioner');
+        Route::post('kuesioner-form',  'kuesioner_form')->name("kuesioner-form");
+
     });
 });
 
