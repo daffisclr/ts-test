@@ -641,7 +641,8 @@
                 </div>
 
             </div>
-        </section><!-- End Frequently Asked Questions Section -->
+        </section>
+        <!-- End Frequently Asked Questions Section -->
 
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
@@ -716,9 +717,11 @@
                 </div>
 
             </div>
-        </section><!-- End Contact Section -->
+        </section>
+        <!-- End Contact Section -->
 
-    </main><!-- End #main -->
+    </main>
+    <!-- End #main -->
 
     <!-- ======= Footer ======= -->
     <footer id="footer">

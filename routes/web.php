@@ -21,8 +21,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/survey_pengguna', function (){
-    return view('pengguna_alumni.survey');
+Route::get('/validasi_pengguna_alumni', function (){
+    return view('pengguna_alumni.validate');
 });
 
 Auth::routes();
