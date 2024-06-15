@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('pengguna_alumnis', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('company');
-            $table->string('position');
-            $table->string('company_contact');
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('company')->nullable();
+            $table->string('position')->nullable();
+            $table->string('company_contact')->nullable();
+            $table->string('invite_code')->unique()->nullable();
             $table->timestamps();
         });
     }

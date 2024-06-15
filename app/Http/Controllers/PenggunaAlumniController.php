@@ -26,6 +26,8 @@ class PenggunaAlumniController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
+        $randomNumber = random_int(100000, 999999);
+
         // validate
         $request->validate([
             'name'            => 'required|string|max:255',
@@ -43,9 +45,10 @@ class PenggunaAlumniController extends Controller
             'company'         => $request->company,
             'position'        => $request->position,
             'company_contact' => $request->company_contact,
+            'invite_code'     => $randomNumber
         ]);
 
-        Mail::to($request->email)->send(new PostMail($request));
+        Mail::to($request->email)->send(new PostMail($request, $randomNumber));
 
         //redirect to index
         return redirect()->route('pengguna-alumni.invitation')->with(['success' => 'Email Telah Berhasil Terkirim!']);

@@ -15,6 +15,7 @@ class PenggunaAlumni extends Model
         'phone',
         'company',
         'position',
-        'company_contact'
+        'company_contact',
+        'invite_code'
     ];
 }
