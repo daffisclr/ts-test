@@ -57,7 +57,8 @@
 
 
         </div>
-    </header><!-- End Header -->
+    </header>
+    <!-- End Header -->
 
     <main id="main">
 
@@ -72,10 +73,44 @@
                 <h2>Survey Pengguna Alumni Jurusan Teknik Informatika dan Komputer Politeknik Negeri Jakarta</h2>
 
             </div>
-        </section><!-- End Breadcrumbs -->
+        </section>
+        <!-- End Breadcrumbs -->
 
         <!-- ======= Pengguna Alumni Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container" data-aos="fade-up">
 
+                <div class="section-title">
+                    <h2>Validasi Pengguna Alumni</h2>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 mt-5 mt-lg-0 d-flex align-items-stretch">
+                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label for="name">Email</label>
+                                    <input type="email" class="form-control" name="email" id="email"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Kode Invite</label>
+                                <input type="text" class="form-control" name="subject" id="subject" required>
+                            </div>
+                            <div class="my-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                            </div>
+                            <div class="text-center"><button type="submit">Validasi</button></div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
         <!-- Pengguna Alumni Section -->
 
     </main><!-- End #main -->
@@ -143,7 +178,8 @@
                 Designed by <a href="https://tik.pnj.ac.id/">TIK PNJ</a>
             </div>
         </div>
-    </footer><!-- End Footer -->
+    </footer>
+    <!-- End Footer -->
 
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i

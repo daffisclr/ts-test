@@ -8,10 +8,13 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
+use Illuminate\Support\Str;
+
+
 
 class PenggunaAlumniController extends Controller
 {
-    public function index() : View
+    public function index(): View
     {
         //get all Pengguna Alumni
         $alumniusers = PenggunaAlumni::latest()->paginate(10);
@@ -38,7 +41,7 @@ class PenggunaAlumniController extends Controller
             'company_contact' => 'required|string|max:255',
         ]);
 
-        PenggunaAlumni::create([
+        $insert = PenggunaAlumni::create([
             'name'            => $request->name,
             'email'           => $request->email,
             'phone'           => $request->phone,
@@ -48,10 +51,17 @@ class PenggunaAlumniController extends Controller
             'invite_code'     => $randomNumber
         ]);
 
-        Mail::to($request->email)->send(new PostMail($request, $randomNumber));
+        Mail::to($request->email)->send(new PostMail($insert));
 
         //redirect to index
         return redirect()->route('pengguna-alumni.invitation')->with(['success' => 'Email Telah Berhasil Terkirim!']);
+    }
+
+    public function generateUniqueCode()
+    {
+        $code = random_int(100000, 999999);
+
+        return $code;
     }
 
     public function destroy($id): RedirectResponse
