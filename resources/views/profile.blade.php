@@ -92,8 +92,15 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
+                                        @if (auth()->user()->role == 'Admin')
+                                        <label class="form-control-label" for="username">NIP<span
+                                            class="small text-danger">*</span></label>
+                                        @endif
+                                        {{-- Border --}}
+                                        @if (auth()->user()->role == 'Alumni')
                                         <label class="form-control-label" for="username">NIM<span
                                                 class="small text-danger">*</span></label>
+                                        @endif
                                         <input type="number" id="username" class="form-control" name="username"
                                             placeholder="Nomor Induk Siswa Alumni ex:461xxxxx"
                                             value="{{ old('username', Auth::user()->username) }}">
@@ -147,7 +154,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group focused">
-                                            <label class="form-control-label" for="name">Prodi<span
+                                            <label class="form-control-label" for="name">Program Studi<span
                                                     class="small text-danger">*</span></label>
                                             <select type="option" class="form-control" id="prodi" name="prodi"
                                                 required>

@@ -89,6 +89,11 @@
                         <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                             <div class="row">
                                 <div class="form-group col-md-12">
+                                    <label for="name">*) Kode Invite diberikan dalam email</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-12">
                                     <label for="name">Email</label>
                                     <input type="email" class="form-control" name="email" id="email"
                                         required>
