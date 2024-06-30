@@ -45,4 +45,12 @@ class AlumniController extends Controller
 
         return redirect()->route('alumni.index')->withSuccess('PDF downloaded successfully.');
     }
+
+    public function chart()
+    {
+
+        $data = User::with('alumni')->where('role', 'Alumni')->orderBy('id', 'desc')->get();
+
+        return view('alumni.chart',compact('data'));
+    }
 }

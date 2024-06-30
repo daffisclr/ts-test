@@ -37,6 +37,7 @@ Route::middleware(['auth'])->group(function () {
     // Middleware Alumni
     Route::controller(AlumniController::class)->as('alumni.')->group(function () {
         Route::get('list_alumni', 'index')->name('index');
+        Route::get('chart_alumni', 'chart')->name('chart');
         Route::get('pdf_generator', 'export_pdf')->name('pdf');
     });
 
