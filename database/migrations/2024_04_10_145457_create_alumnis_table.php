@@ -15,8 +15,8 @@ return new class extends Migration
         Schema::create('alumnis', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
-            $table->string('prodi');
-            $table->string('jenjang');
+            $table->string('prodi')->comment('Teknik Informatika - TI, Teknik Multimedia Jaringan - TMJ, Teknik Multimedia Digital - TMD, Teknik Komputer Jaringan - KJ');
+            $table->string('jenjang')->comment('TI - TMJ - TMD = D4  / TKJ = D1');
             $table->enum('jenis_kelamin', ['Laki-Laki', 'Perempuan']);
             $table->enum('agama', ['Islam', 'Kristen Protestan', 'Kristen Katolik', 'Hindu', 'Buddha', 'Khonghucu']);
             $table->string('tahun_masuk');

@@ -37,6 +37,7 @@ Route::middleware(['auth'])->group(function () {
     // Middleware Alumni
     Route::controller(AlumniController::class)->as('alumni.')->group(function () {
         Route::get('list_alumni', 'index')->name('index');
+        Route::get('chart_alumni', 'chart')->name('chart');
         Route::get('pdf_generator', 'export_pdf')->name('pdf');
     });
 
@@ -52,6 +53,8 @@ Route::middleware(['auth'])->group(function () {
     // Middleware Tracer Study
     Route::controller(KuesionerController::class)->as('tracer-study.')->group(function () {
         Route::get('kuesioner_tracer_study', 'ShowKuesioner')->name('kuesioner');
+        Route::post('kuesioner-form',  'kuesioner_form')->name("kuesioner-form");
+
     });
 });
 
