@@ -37,8 +37,8 @@
         </li>
 
         <!-- Nav Item - Chart Alumni -->
-        <li class="nav-item" id="chart alumni">
-            <a class="nav-link" href="">
+        <li class="nav-item {{ Nav::isRoute('alumni.chart') }}" id="chart alumni" >
+            <a class="nav-link" href="{{ route('alumni.chart') }}">
                 <i class="fa fa-pie-chart"></i>
                 <span>{{ __('Charts Alumni JTIK') }}</span>
             </a>
