@@ -40,7 +40,7 @@
 
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Jenjang Pendidikan</h6>
             </div>
             <div class="card-body">
                 <div id="jenjang" style="width: 100%;height:400px;"></div>
@@ -49,7 +49,7 @@
 
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Jenis Kelamin</h6>
             </div>
             <div class="card-body">
                 <div id="jenis-kelamin" style="width: 100%;height:400px;"></div>
@@ -58,7 +58,7 @@
 
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Agama</h6>
             </div>
             <div class="card-body">
                 <div id="agama" style="width: 100%;height:400px;"></div>
@@ -67,7 +67,7 @@
 
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Angkatan</h6>
             </div>
             <div class="card-body">
                 <div id="tahun-masuk" style="width: 100%;height:400px;"></div>
@@ -76,7 +76,7 @@
 
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Lulusan</h6>
             </div>
             <div class="card-body">
                 <div id="tahun-lulus" style="width: 100%;height:400px;"></div>
@@ -124,7 +124,7 @@
 
         var jenjangOption = {
             title: {
-                text: 'Jumlah Alumni Berdasarkan Program Studi'
+                text: 'Jumlah Alumni Berdasarkan Jenjang Pendidikan'
             },
             dataset:{
                 dimensions: ['jenjang','jml_jenjang'],
@@ -141,7 +141,7 @@
 
         var jenisKelaminOption = {
             title: {
-                text: 'Jumlah Alumni Berdasarkan Program Studi'
+                text: 'Jumlah Alumni Berdasarkan Jenis Kelamin'
             },
             dataset:{
                 dimensions: ['jenis_kelamin','jml_jenis_kelamin'],
@@ -158,7 +158,7 @@
 
         var agamaOption = {
             title: {
-                text: 'Jumlah Alumni Berdasarkan Program Studi'
+                text: 'Jumlah Alumni Berdasarkan Agama'
             },
             dataset:{
                 dimensions: ['agama','jml_agama'],
@@ -175,7 +175,7 @@
 
         var tahunMasukOption = {
             title: {
-                text: 'Jumlah Alumni Berdasarkan Program Studi'
+                text: 'Jumlah Alumni Berdasarkan Angkatan'
             },
             dataset:{
                 dimensions: ['tahun_masuk','jml_tahun_masuk'],
@@ -198,7 +198,7 @@
 
         var tahunLulusOption = {
             title: {
-                text: 'Jumlah Alumni Berdasarkan Program Studi'
+                text: 'Jumlah Alumni Berdasarkan Lulusan'
             },
             dataset:{
                 dimensions: ['tahun_lulus','jml_tahun_lulus'],
