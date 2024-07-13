@@ -198,7 +198,7 @@
                                     militer/mengurus keluarga) <br />
                                 </td>
                             </tr>
-                            <tr id='p_job_position' class='tr-quis2'>
+                            <tr id='p_job_position' class='tr-quis'>
                                 <td valign='top'>Apa posisi/jabatan Anda saat ini?</td>
                                 <td valign='top'>:</td>
                                 <td>
@@ -1247,3 +1247,250 @@
         </div>
     </form>
 </div>
+
+@push('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+
+<script>
+    $(document).ready(function() {
+        $('.tr-quis').hide();
+        $('.tr-quis input').removeAttr('required');
+        $('.tr-quis1').hide();
+        $('.tr-quis1 input').removeAttr('required');
+        $('.tr-quis2').hide();
+        $('.tr-quis2 input').removeAttr('required');
+        $('.tr-quis4').hide();
+        $('.tr-quis4 input').removeAttr('required');
+
+        // $('.datepicker').datepicker({
+        //     dateFormat: 'yy-mm-dd'
+        // });
+        // $('#inp-f5a1').select2();
+    });
+
+$(".step-two").ready(function() {
+    console.log('test');
+})
+
+$('input[name="p_alumni_status"]').change(function() {
+        if ($(this).attr('value') == '1') {
+            $('.tr-quis').show();
+            $('.tr-quis input').attr('required', true);
+            $('.tr-quis1').show();
+            $('.tr-quis1 input').attr('required', true);
+            $('.tr-quis2').hide();
+            $('.tr-quis2 input').removeAttr('required');
+            $('.tr-quis4').hide();
+            $('.tr-quis4 input').removeAttr('required');
+            /* $('#fub401').show();
+            $('.fub401').attr('required',true);
+            $('input[name="fub401"]').change(); */
+
+        } else if ($(this).attr('no_urut') == '2') {
+
+            $('.tr-quis').show();
+            $('.tr-quis input').attr('required', true);
+            $('.tr-quis1').hide();
+            $('.tr-quis1 input').removeAttr('required');
+            $('.tr-quis2').show();
+            $('.tr-quis2 input').attr('required', true);
+            $('.tr-quis4').hide();
+            $('.tr-quis4 input').removeAttr('required');
+
+            /* 			$('#f5c').show();
+                        $('.inp-f5c').attr('required',true);
+                        $('input[name="f5c"]').change(); */
+
+        } else if ($(this).attr('no_urut') == '3') {
+
+            $('.tr-quis').hide();
+            $('.tr-quis input').removeAttr('required');
+            $('.tr-quis1').hide();
+            $('.tr-quis1 input').removeAttr('required');
+            $('.tr-quis2').hide();
+            $('.tr-quis2 input').removeAttr('required');
+            $('.tr-quis4').show();
+            $('.tr-quis4 input').attr('required', true);
+
+            /* 			$('#f19').show();
+                        $('.inp-f19').attr('required',true);
+                        $('input[name="f19a"]').change(); */
+
+        } else {
+            $('.tr-quis').hide();
+            $('.tr-quis input').removeAttr('required');
+            $('.tr-quis').hide();
+            $('.tr-quis input').removeAttr('required');
+            $('.tr-quis1').hide();
+            $('.tr-quis1 input').removeAttr('required');
+            $('.tr-quis2').hide();
+            $('.tr-quis2 input').removeAttr('required');
+            $('.tr-quis4').hide();
+            $('.tr-quis4 input').removeAttr('required');
+
+
+
+
+            /* 			$('#f12').show();
+                        $('input[name="f1201"]').change();
+                        $('.inp-f12').attr('required',true); */
+        }
+
+    });
+    $('input[name="f5c"]').change(function() {
+        $('#f504').show();
+        $('input[name=f504]').change();
+    });
+    $('input[name="fub401"]').change(function() {
+        $('#f504').show();
+        $('input[name=f504]').change();
+    });
+    $('input[name=f18a]').change(function() {
+        $('#f18e').show();
+        $('.inp-f18e').attr('required', true);
+        $('#f18c').show();
+        $('.inp-f18c').attr('required', true);
+        $('#f18d').show();
+        $('.inp-f18d').attr('required', true);
+        $('#f18f').show();
+        $('.inp-f18f').attr('required', true);
+        $('#f12').show();
+        $('.inp-f12').attr('required', true);
+        $('input[name=f1201]').change();
+
+    });
+    $('input[name="f1201"]').change(function() {
+        $('#f14').show();
+        $('.inp-f14').attr('required', true);
+        $('#f15').show();
+        $('.inp-f15').attr('required', true);
+        $('#f17').show();
+        $('.inp-f17').attr('required', true);
+        $('#f2').show();
+        $('.inp-f2').attr('required', true);
+        $('#f3').show();
+        $('.inp-f3').attr('required', true);
+        $('#f4').show();
+        $('#f6').show();
+        $('.inp-f6').attr('required', true);
+        $('#f7').show();
+        $('.inp-f7').attr('required', true);
+        $('#f7a').show();
+        $('.inp-f7a').attr('required', true);
+        $('#f10').show();
+        $('.inp-f10').attr('required', true);
+        $('#f16').show();
+    });
+    $('input[name="f19a"]').change(function() {
+        $('#f18').show();
+        $('.inp-f18').attr('required', true);
+        $('input[name="f18a"]').change();
+    });
+
+    $('input[name="f504"]').change(function() {
+        if ($(this).attr('no_urut') == '1') {
+            $('#f502').show();
+            $('.inp-f502').attr('required', true);
+            $('#f506').hide();
+            $('.inp-f506').removeAttr('required');
+        } else {
+            $('#f502').hide();
+            $('.inp-f502').removeAttr('required');
+            $('#f506').show();
+            $('.inp-f506').attr('required', true);
+        }
+        $('#fub2').show();
+        $('.inp-fub2').attr('required', true);
+        $('#f5b').show();
+        $('.inp-f5b').attr('required', true);
+        $('#f505').show();
+        $('.inp-f505').attr('required', true);
+        $('#f5a').show();
+        $('.inp-f5a').attr('required', true);
+        $('#f11').show();
+        $('.inp-f11').attr('required', true);
+        $('#f5d').show();
+        $('.inp-f5d').attr('required', true);
+        $('#f12').show();
+        $('.inp-f12').attr('required', true);
+        $('input[name=f1201]').change();
+    });
+
+    $('#inp-f5a1').change(function() {
+        var prop = $(this).val();
+        $('#inp-f5a2').val('-');
+        console.log(prop);
+        $('#inp-f5a2').children().each(function() {
+            if ($(this).attr('provinsi') != '-')
+                $(this).remove();
+        });
+        $('#inp-f5a2tmp').children().each(function() {
+            if ($(this).attr('provinsi') == prop)
+                $('#inp-f5a2').append($(this));
+        });
+        $('#inp-f5a2').select2();
+    });
+
+
+
+    function checkform() {
+        var f = document.forms["contactform"].elements;
+        console.log(f);
+
+        var cansubmit = true;
+
+
+        for (var i = 0; i < f.length; i++) {
+            if (f[i].value.length == 0) cansubmit = false;
+        }
+
+        if (cansubmit) {
+            document.getElementById('submit').disabled = false;
+        }
+    }
+
+
+    //validasi2
+    $('#inp-f1613a').change(function() {
+        if ($(this).is(':checked')) {
+            $('#inp-f1613b').attr('required', true);
+        } else {
+            $('#inp-f1613b').removeAttr('required');
+        }
+    });
+
+    $('#inp-f415a').change(function() {
+        if ($(this).is(':checked')) {
+            $('#inp-f415b').attr('required', true);
+        } else {
+            $('#inp-f415b').removeAttr('required');
+        }
+    });
+
+    $('.inp-f11').change(function() {
+        if ($('#inp-f11-lainnya').is(':checked')) {
+            $('#inp-f1102').attr('required', true);
+        } else {
+            $('#inp-f1102').removeAttr('required');
+        }
+    });
+
+    $('.inp-f12').change(function() {
+        if ($('#inp-f1201-lainnya').is(':checked')) {
+            $('#inp-f1202').attr('required', true);
+        } else {
+            $('#inp-f1202').removeAttr('required');
+        }
+    });
+
+    $('.inp-f10').change(function() {
+        if ($('#inp-f1001-lainnya').is(':checked')) {
+            $('#inp-f1002').attr('required', true);
+        } else {
+            $('#inp-f1002').removeAttr('required');
+        }
+    });
+</script>
+@endpush
