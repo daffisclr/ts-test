@@ -7,7 +7,7 @@
             {{-- STEP 1 --}}
             <div class="step-one">
                 <div class="card">
-                    <div class="card-header bg-secondary text-white">STEP 1/4 - Data Alumni</div>
+                    <div class="card-header bg-secondary text-white">STEP 1/2 - Data Alumni</div>
                     <div class="card-body">
                         <p>*) Jika ada salah penginputan silahkan mengganti data terlebih dahulu pada halaman profil</p>
                         {{-- Nama Alumni --}}
@@ -173,7 +173,7 @@
             {{-- STEP 2 --}}
             <div class="step-two">
                 <div class="card">
-                    <div class="card-header bg-secondary text-white">STEP 2/4 - Form Tracer Study</div>
+                    <div class="card-header bg-secondary text-white">STEP 2/2 - Form Tracer Study</div>
                     <div class="card-body">
                         <table class='table table-striped table-responsive'>
                             <tr>

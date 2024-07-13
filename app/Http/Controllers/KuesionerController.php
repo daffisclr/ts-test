@@ -167,4 +167,27 @@ class KuesionerController extends Controller
             return redirect()->back()->withInput($form_value);
         }
     }
+
+    public function charts_ti ()
+    {
+
+        $kuesioner = DB::select('');
+
+        return view('tracer_study.hasil_charts.chart_ti');
+    }
+
+    public function charts_tmj ()
+    {
+        return view('tracer_study.hasil_charts.chart_tmj');
+    }
+
+    public function charts_tmd ()
+    {
+        return view('tracer_study.hasil_charts.chart_tmd');
+    }
+
+    public function charts_tkj ()
+    {
+        return view('tracer_study.hasil_charts.chart_tkj');
+    }
 }
