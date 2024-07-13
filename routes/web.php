@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlumniController;
+use App\Http\Controllers\ChartController;
 use App\Http\Controllers\KuesionerController;
 use App\Http\Controllers\PenggunaAlumniController;
 use Illuminate\Support\Facades\Auth;
@@ -54,6 +55,13 @@ Route::middleware(['auth'])->group(function () {
     Route::controller(KuesionerController::class)->as('tracer-study.')->group(function () {
         Route::get('kuesioner_tracer_study', 'ShowKuesioner')->name('kuesioner');
         Route::post('kuesioner-form',  'kuesioner_form')->name("kuesioner-form");
+
+    });
+
+
+    // Middleware Chart
+    Route::controller(ChartController::class)->as('chart.')->group(function () {
+        Route::get('alumni-chart', 'get_alumni_info')->name('alumni-chart');
 
     });
 });
