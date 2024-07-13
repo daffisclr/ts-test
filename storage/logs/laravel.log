@@ -13083,3 +13083,211 @@ Did you mean one of these?
 #71 C:\\xampp\\htdocs\\ts-test\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #72 {main}
 "} 
+[2024-07-13 07:42:57] local.ERROR: Class "Spatie\ErrorSolutions\SolutionProviderRepository" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\ErrorSolutions\\SolutionProviderRepository\" not found at C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php:140)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php(48): Spatie\\LaravelIgnition\\IgnitionServiceProvider->registerIgnition()
+#1 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(868): Spatie\\LaravelIgnition\\IgnitionServiceProvider->register()
+#2 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(75): Illuminate\\Foundation\\Application->register(Object(Spatie\\LaravelIgnition\\IgnitionServiceProvider))
+#3 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(843): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#4 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(36): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#5 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(316): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#6 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(470): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#7 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(194): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-07-13 07:43:01] local.ERROR: Class "Spatie\ErrorSolutions\SolutionProviderRepository" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\ErrorSolutions\\SolutionProviderRepository\" not found at C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php:140)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php(48): Spatie\\LaravelIgnition\\IgnitionServiceProvider->registerIgnition()
+#1 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(868): Spatie\\LaravelIgnition\\IgnitionServiceProvider->register()
+#2 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(75): Illuminate\\Foundation\\Application->register(Object(Spatie\\LaravelIgnition\\IgnitionServiceProvider))
+#3 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(843): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#4 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(36): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#5 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(316): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#6 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(470): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#7 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(194): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-07-13 07:43:13] local.ERROR: Class "Spatie\ErrorSolutions\SolutionProviderRepository" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\ErrorSolutions\\SolutionProviderRepository\" not found at C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php:140)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php(48): Spatie\\LaravelIgnition\\IgnitionServiceProvider->registerIgnition()
+#1 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(868): Spatie\\LaravelIgnition\\IgnitionServiceProvider->register()
+#2 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(75): Illuminate\\Foundation\\Application->register(Object(Spatie\\LaravelIgnition\\IgnitionServiceProvider))
+#3 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(843): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#4 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(36): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#5 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(316): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#6 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(470): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#7 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(194): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-07-13 07:43:14] local.ERROR: Class "Spatie\ErrorSolutions\SolutionProviderRepository" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\ErrorSolutions\\SolutionProviderRepository\" not found at C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php:140)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php(48): Spatie\\LaravelIgnition\\IgnitionServiceProvider->registerIgnition()
+#1 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(868): Spatie\\LaravelIgnition\\IgnitionServiceProvider->register()
+#2 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(75): Illuminate\\Foundation\\Application->register(Object(Spatie\\LaravelIgnition\\IgnitionServiceProvider))
+#3 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(843): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#4 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(36): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#5 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(316): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#6 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(470): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#7 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(194): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-07-13 07:44:15] local.ERROR: Class "Spatie\ErrorSolutions\SolutionProviderRepository" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\ErrorSolutions\\SolutionProviderRepository\" not found at C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php:140)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php(48): Spatie\\LaravelIgnition\\IgnitionServiceProvider->registerIgnition()
+#1 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(868): Spatie\\LaravelIgnition\\IgnitionServiceProvider->register()
+#2 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(75): Illuminate\\Foundation\\Application->register(Object(Spatie\\LaravelIgnition\\IgnitionServiceProvider))
+#3 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(843): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#4 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(36): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#5 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(316): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#6 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(470): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#7 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(194): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-07-13 07:44:15] local.ERROR: Class "Spatie\ErrorSolutions\SolutionProviderRepository" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\ErrorSolutions\\SolutionProviderRepository\" not found at C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php:140)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php(48): Spatie\\LaravelIgnition\\IgnitionServiceProvider->registerIgnition()
+#1 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(868): Spatie\\LaravelIgnition\\IgnitionServiceProvider->register()
+#2 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(75): Illuminate\\Foundation\\Application->register(Object(Spatie\\LaravelIgnition\\IgnitionServiceProvider))
+#3 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(843): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#4 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(36): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#5 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(316): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#6 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(470): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#7 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(194): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-07-13 07:45:11] local.ERROR: Class "Spatie\ErrorSolutions\SolutionProviderRepository" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\ErrorSolutions\\SolutionProviderRepository\" not found at C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php:140)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php(48): Spatie\\LaravelIgnition\\IgnitionServiceProvider->registerIgnition()
+#1 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(868): Spatie\\LaravelIgnition\\IgnitionServiceProvider->register()
+#2 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(75): Illuminate\\Foundation\\Application->register(Object(Spatie\\LaravelIgnition\\IgnitionServiceProvider))
+#3 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(843): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#4 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(36): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#5 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(316): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#6 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(470): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#7 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(194): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-07-13 07:45:12] local.ERROR: Class "Spatie\ErrorSolutions\SolutionProviderRepository" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\ErrorSolutions\\SolutionProviderRepository\" not found at C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php:140)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php(48): Spatie\\LaravelIgnition\\IgnitionServiceProvider->registerIgnition()
+#1 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(868): Spatie\\LaravelIgnition\\IgnitionServiceProvider->register()
+#2 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(75): Illuminate\\Foundation\\Application->register(Object(Spatie\\LaravelIgnition\\IgnitionServiceProvider))
+#3 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(843): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#4 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(36): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#5 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(316): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#6 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(470): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#7 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(194): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-07-13 07:46:11] local.ERROR: Class "Spatie\ErrorSolutions\SolutionProviderRepository" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\ErrorSolutions\\SolutionProviderRepository\" not found at C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php:140)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php(48): Spatie\\LaravelIgnition\\IgnitionServiceProvider->registerIgnition()
+#1 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(868): Spatie\\LaravelIgnition\\IgnitionServiceProvider->register()
+#2 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(75): Illuminate\\Foundation\\Application->register(Object(Spatie\\LaravelIgnition\\IgnitionServiceProvider))
+#3 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(843): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#4 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(36): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#5 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(316): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#6 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(470): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#7 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(194): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-07-13 07:46:11] local.ERROR: Class "Spatie\ErrorSolutions\SolutionProviderRepository" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\ErrorSolutions\\SolutionProviderRepository\" not found at C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php:140)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php(48): Spatie\\LaravelIgnition\\IgnitionServiceProvider->registerIgnition()
+#1 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(868): Spatie\\LaravelIgnition\\IgnitionServiceProvider->register()
+#2 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(75): Illuminate\\Foundation\\Application->register(Object(Spatie\\LaravelIgnition\\IgnitionServiceProvider))
+#3 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(843): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#4 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(36): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#5 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(316): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#6 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(470): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#7 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(194): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-07-13 07:47:13] local.ERROR: Class "Spatie\ErrorSolutions\SolutionProviderRepository" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\ErrorSolutions\\SolutionProviderRepository\" not found at C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php:140)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php(48): Spatie\\LaravelIgnition\\IgnitionServiceProvider->registerIgnition()
+#1 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(868): Spatie\\LaravelIgnition\\IgnitionServiceProvider->register()
+#2 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(75): Illuminate\\Foundation\\Application->register(Object(Spatie\\LaravelIgnition\\IgnitionServiceProvider))
+#3 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(843): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#4 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(36): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#5 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(316): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#6 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(470): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#7 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(194): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-07-13 07:47:13] local.ERROR: Class "Spatie\ErrorSolutions\SolutionProviderRepository" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\ErrorSolutions\\SolutionProviderRepository\" not found at C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php:140)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php(48): Spatie\\LaravelIgnition\\IgnitionServiceProvider->registerIgnition()
+#1 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(868): Spatie\\LaravelIgnition\\IgnitionServiceProvider->register()
+#2 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(75): Illuminate\\Foundation\\Application->register(Object(Spatie\\LaravelIgnition\\IgnitionServiceProvider))
+#3 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(843): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#4 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(36): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#5 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(316): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#6 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(470): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#7 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(194): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-07-13 07:48:11] local.ERROR: Class "Spatie\ErrorSolutions\SolutionProviderRepository" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\ErrorSolutions\\SolutionProviderRepository\" not found at C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php:140)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php(48): Spatie\\LaravelIgnition\\IgnitionServiceProvider->registerIgnition()
+#1 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(868): Spatie\\LaravelIgnition\\IgnitionServiceProvider->register()
+#2 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(75): Illuminate\\Foundation\\Application->register(Object(Spatie\\LaravelIgnition\\IgnitionServiceProvider))
+#3 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(843): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#4 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(36): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#5 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(316): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#6 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(470): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#7 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(194): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-07-13 07:48:11] local.ERROR: Class "Spatie\ErrorSolutions\SolutionProviderRepository" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\ErrorSolutions\\SolutionProviderRepository\" not found at C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php:140)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php(48): Spatie\\LaravelIgnition\\IgnitionServiceProvider->registerIgnition()
+#1 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(868): Spatie\\LaravelIgnition\\IgnitionServiceProvider->register()
+#2 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(75): Illuminate\\Foundation\\Application->register(Object(Spatie\\LaravelIgnition\\IgnitionServiceProvider))
+#3 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(843): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#4 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(36): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#5 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(316): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#6 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(470): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#7 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(194): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-07-13 07:49:11] local.ERROR: Class "Spatie\ErrorSolutions\SolutionProviderRepository" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\ErrorSolutions\\SolutionProviderRepository\" not found at C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php:140)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php(48): Spatie\\LaravelIgnition\\IgnitionServiceProvider->registerIgnition()
+#1 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(868): Spatie\\LaravelIgnition\\IgnitionServiceProvider->register()
+#2 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(75): Illuminate\\Foundation\\Application->register(Object(Spatie\\LaravelIgnition\\IgnitionServiceProvider))
+#3 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(843): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#4 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(36): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#5 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(316): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#6 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(470): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#7 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(194): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
+[2024-07-13 07:49:12] local.ERROR: Class "Spatie\ErrorSolutions\SolutionProviderRepository" not found {"exception":"[object] (Error(code: 0): Class \"Spatie\\ErrorSolutions\\SolutionProviderRepository\" not found at C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php:140)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\ts-test\\vendor\\spatie\\laravel-ignition\\src\\IgnitionServiceProvider.php(48): Spatie\\LaravelIgnition\\IgnitionServiceProvider->registerIgnition()
+#1 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(868): Spatie\\LaravelIgnition\\IgnitionServiceProvider->register()
+#2 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(75): Illuminate\\Foundation\\Application->register(Object(Spatie\\LaravelIgnition\\IgnitionServiceProvider))
+#3 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(843): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#4 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(36): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#5 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(316): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#6 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(470): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#7 C:\\xampp\\htdocs\\ts-test\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(194): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 {main}
+"} 
