@@ -140,31 +140,31 @@
                 right: 20
             },
             dataset: [{
-                dimensions: ['SCORE', 'JUMLAH'],
+                dimensions: ['STATUS', 'JUMLAH'],
                 source:lectureScore
             },
             {
-                dimensions: ['SCORE', 'JUMLAH'],
+                dimensions: ['STATUS', 'JUMLAH'],
                 source:demoScore
             },
             {
-                dimensions: ['SCORE', 'JUMLAH'],
+                dimensions: ['STATUS', 'JUMLAH'],
                 source:projectScore
             },
             {
-                dimensions: ['SCORE', 'JUMLAH'],
+                dimensions: ['STATUS', 'JUMLAH'],
                 source:internScore
             },
             {
-                dimensions: ['SCORE', 'JUMLAH'],
+                dimensions: ['STATUS', 'JUMLAH'],
                 source:praticalScore
             },
             {
-                dimensions: ['SCORE', 'JUMLAH'],
+                dimensions: ['STATUS', 'JUMLAH'],
                 source:fieldScore
             },
             {
-                dimensions: ['SCORE', 'JUMLAH'],
+                dimensions: ['STATUS', 'JUMLAH'],
                 source:discussionScore
             },
         ],
