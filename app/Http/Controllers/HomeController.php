@@ -42,6 +42,8 @@ class HomeController extends Controller
 
         $pendapatan = DB::table('kuesioner_work')->avg('salary');
 
+        $masa_tunggu = DB::table('kuesioner_work')->avg('job_acquired_time');
+
         $widget = [
             'users' => $users,
             'alumni_ti' => $alumni_ti,
@@ -49,6 +51,7 @@ class HomeController extends Controller
             'alumni_tmd' => $alumni_tmd,
             'alumni_tkj' => $alumni_tkj,
             'count_ts' => $count_ts,
+            'masa_tunggu' => $masa_tunggu,
             'pendapatan' => $pendapatan
             //...
         ];
