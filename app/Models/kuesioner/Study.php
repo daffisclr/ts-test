@@ -2,7 +2,7 @@
 
 namespace App\Models\kuesioner;
 
-use App\Models\Kuesioner_Tracer_Study;
+use App\Models\kuesioner\Kuesioner_Tracer_Study;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
