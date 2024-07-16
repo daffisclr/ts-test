@@ -171,8 +171,6 @@ class KuesionerController extends Controller
     public function charts_ti ()
     {
 
-        $kuesioner = DB::select('');
-
         return view('tracer_study.hasil_charts.chart_ti');
     }
 
