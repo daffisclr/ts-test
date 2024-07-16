@@ -61,10 +61,10 @@
                 <div id="collapseUtilities" class="collapse show" aria-labelledby="headingUtilities" data-parent="#accordionSidebar" style="">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Program Studi:</h6>
-                        <a class="collapse-item" href="utilities-color.html">TI (D4)</a>
-                        <a class="collapse-item" href="utilities-border.html">TMJ (D4)</a>
-                        <a class="collapse-item" href="utilities-animation.html">TMD (D4)</a>
-                        <a class="collapse-item" href="utilities-other.html">TKJ (D1)</a>
+                        <a class="collapse-item" href="{{ route('tracer-study.charts_ti') }}">TI (D4)</a>
+                        <a class="collapse-item" href="{{ route('tracer-study.charts_tmj') }}">TMJ (D4)</a>
+                        <a class="collapse-item" href="{{ route('tracer-study.charts_tmd') }}">TMD (D4)</a>
+                        <a class="collapse-item" href="{{ route('tracer-study.charts_tkj') }}">TKJ (D1)</a>
                     </div>
                 </div>
             </li>
