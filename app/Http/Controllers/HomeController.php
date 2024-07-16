@@ -38,6 +38,8 @@ class HomeController extends Controller
 
         $alumni_tkj = Alumni::where('prodi', 'Teknik Komputer dan Jaringan')->count();
 
+        $count_ts = DB::table('kuesioner')->count();
+
         $pendapatan = DB::table('kuesioner_work')->avg('salary');
 
         $widget = [
@@ -46,6 +48,7 @@ class HomeController extends Controller
             'alumni_tmj' => $alumni_tmj,
             'alumni_tmd' => $alumni_tmd,
             'alumni_tkj' => $alumni_tkj,
+            'count_ts' => $count_ts,
             'pendapatan' => $pendapatan
             //...
         ];
