@@ -2,7 +2,7 @@
 
 namespace App\Models\kuesioner;
 
-use App\Models\Kuesioner_Tracer_Study;
+use App\Models\kuesioner\Kuesioner_Tracer_Study;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -90,78 +90,105 @@ GROUP BY
         return $result;
     }
 
-    public static function countAverageMethod(string $prodi)
-    {
-
-        $result = DB::select("SELECT
-	ROUND(AVG(K.LECTURE_METHOD)) AS LECTURE,
-	ROUND(AVG(K.DEMO_METHOD)) AS DEMO,
-	ROUND(AVG(K.PROJECT_METHOD)) AS PROJECT,
-	ROUND(AVG(K.INTERNSHIP_METHOD)) AS INTERNSHIP,
-	ROUND(AVG(K.PRACTICAL_METHOD)) AS PRACTICAL,
-	ROUND(AVG(K.FIELD_METHOD)) AS FIELD,
-	ROUND(AVG(K.DISCUSSION_METHOD)) AS DISCUSSION,
-	COUNT(K.ALUMNI_ID) AS ALUMNI
-FROM
-	KUESIONER K
-LEFT JOIN ALUMNIS A ON
-	A.ID = K.ALUMNI_ID
-WHERE
-	A.PRODI = '$prodi'");
-
-        if (!empty($result)) {
-            $result = $result[0];
-
-            // Cast the fields to integers or floats as needed
-            $result->LECTURE = (int) $result->LECTURE;
-            $result->DEMO = (int) $result->DEMO;
-            $result->PROJECT = (int) $result->PROJECT;
-            $result->INTERNSHIP = (int) $result->INTERNSHIP;
-            $result->PRACTICAL = (int) $result->PRACTICAL;
-            $result->FIELD = (int) $result->FIELD;
-            $result->DISCUSSION = (int) $result->DISCUSSION;
-            $result->ALUMNI = (int) $result->ALUMNI;
-
-            return $result;
-        }
-
-        return null;
-    }
-
-    public static function countEveryMethod(string $prodi, string $method)
+    public static function countJobPosition(string $prodi)
     {
 
         $result = DB::select("SELECT
 	CASE
-		WHEN K.$method = 1 THEN 1
-		WHEN K.$method = 2 THEN 2
-		WHEN K.$method = 3 THEN 3
-		WHEN K.$method = 4 THEN 4
-		ELSE 5
-	END AS SCORE,
-	IFNULL(COUNT(K.$method), 0) AS JUMLAH
+		WHEN KW.JOB_POSITION = 1 THEN 'Founder'
+		WHEN KW.JOB_POSITION = 2 THEN 'Co-Founder'
+		WHEN KW.JOB_POSITION = 3 THEN 'Staff'
+		WHEN KW.JOB_POSITION = 4 THEN 'Freelance/Kerja Lepas'
+		ELSE 'Belum Bekerja'
+	END AS POSITION,
+	COUNT(KW.JOB_POSITION) AS JUMLAH,
+	AVG(KW.SALARY) AS AVG_SALARY,
+	AVG(KW.JOB_ACQUIRED_TIME) AS AVG_JOB_ACQUIRED,
+	AVG(KW.APPLIED_COMPANY) AS AVG_APPLICATION,
+	AVG(KW.APPLIED_COMPANY_INTERVIEWED) AS AVG_COMPANY_INTERVIEWED,
+	AVG(KW.APPLIED_COMPANY_RESPONDED) AS AVG_COMPANY_RESPONDED
 FROM
-	KUESIONER K
+	KUESIONER_WORK KW
+LEFT JOIN KUESIONER K ON
+	K.ID = KW.TRACER_STUDY_ID
 LEFT JOIN ALUMNIS A ON
 	A.ID = K.ALUMNI_ID
 WHERE
 	A.PRODI = '$prodi'
-GROUP BY
-	K.$method;");
+	GROUP BY KW.JOB_POSITION;");
 
         $status = [
-            1, 2, 3, 4, 5
+            'Founder',
+            'Co-Founder',
+            'Staff',
+            'Freelance/Kerja Lepas',
+            'Belum Bekerja',
         ];
 
         $statusMap = [];
         foreach ($result as $row) {
-            $statusMap[$row->SCORE] = $row->JUMLAH;
+            $statusMap[$row->POSITION] = [
+                'JUMLAH' => $row->JUMLAH,
+                "AVG_SALARY" => $row->AVG_SALARY,
+                "AVG_JOB_ACQUIRED" => $row->AVG_JOB_ACQUIRED,
+                "AVG_APPLICATION" => $row->AVG_APPLICATION,
+                "AVG_COMPANY_INTERVIEWED" => $row->AVG_COMPANY_INTERVIEWED,
+                "AVG_COMPANY_RESPONDED" => $row->AVG_COMPANY_RESPONDED,
+            ];
         }
 
         // Iterate over $status array to add missing statuses with jumlah 0
         foreach ($status as $key) {
             if (!isset($statusMap[$key])) {
-                $result[] = (object) ['SCORE' => $key, 'JUMLAH' => 0];
+                $result[] = (object) [
+                    'POSITION' => $key,
+                    'JUMLAH' => 0,
+                    "AVG_SALARY" => 0,
+                    "AVG_JOB_ACQUIRED" => 0,
+                    "AVG_APPLICATION" => 0,
+                    "AVG_COMPANY_INTERVIEWED" => 0,
+                    "AVG_COMPANY_RESPONDED" => 0,
+                ];
+            }
+        }
+
+        return $result;
+    }
+
+    public static function countCompany(string $prodi, string $column, array $status)
+    {
+        $result = DB::select("SELECT 
+KW.$column,
+COUNT(KW.$column) AS JUMLAH
+FROM
+	KUESIONER_WORK KW
+LEFT JOIN KUESIONER K ON
+	K.ID = KW.TRACER_STUDY_ID
+LEFT JOIN ALUMNIS A ON
+	A.ID = K.ALUMNI_ID
+WHERE
+	A.PRODI = '$prodi'
+	GROUP BY KW.$column ;");
+
+        $status = [
+            "Instansi Pemerintah",
+            "BUMN/BUMD",
+            "Institusi/Organisasi Multilateral",
+            "Organisasi non-profit/Lembaga Swadaya Masyarakat",
+            "Perusahaan swasta",
+            "Wiraswasta/perusahaan sendiri",
+            "5",
+        ];
+
+        $statusMap = [];
+        foreach ($result as $row) {
+            $statusMap[$row->$column] = $row->JUMLAH;
+        }
+
+        // Iterate over $status array to add missing statuses with jumlah 0
+        foreach ($status as $key) {
+            if (!isset($statusMap[$key])) {
+                $result[] = (object) [$column => $key, 'JUMLAH' => 0];
             }
         }
 
