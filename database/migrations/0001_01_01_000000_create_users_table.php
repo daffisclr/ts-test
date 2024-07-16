@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('phone_number')->nullable(); // Nomor Telpon Aktif
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role', ['Admin', 'Alumni', 'KPS', 'Dosen PIC'])->default('Alumni');
+            $table->enum('role', ['Admin', 'Alumni', 'KPS'])->default('Alumni');
             $table->rememberToken();
             $table->timestamps();
         });
