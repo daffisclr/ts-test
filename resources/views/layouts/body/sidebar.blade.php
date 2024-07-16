@@ -53,12 +53,21 @@
         </div>
 
         <!-- Nav Item - Chart Tracer Study -->
-        <li class="nav-item" id="chart tracer study">
-            <a class="nav-link" href="">
-                <i class="fa fa-bar-chart"></i>
-                <span>{{ __('Charts Alumni JTIK') }}</span>
-            </a>
-        </li>
+        <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-bar-chart"></i>
+                    <span>Hasl Kuesioner Tracer Study</span>
+                </a>
+                <div id="collapseUtilities" class="collapse show" aria-labelledby="headingUtilities" data-parent="#accordionSidebar" style="">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Program Studi:</h6>
+                        <a class="collapse-item" href="{{ route('tracer-study.charts_ti') }}">TI (D4)</a>
+                        <a class="collapse-item" href="{{ route('tracer-study.charts_tmj') }}">TMJ (D4)</a>
+                        <a class="collapse-item" href="{{ route('tracer-study.charts_tmd') }}">TMD (D4)</a>
+                        <a class="collapse-item" href="{{ route('tracer-study.charts_tkj') }}">TKJ (D1)</a>
+                    </div>
+                </div>
+            </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider">

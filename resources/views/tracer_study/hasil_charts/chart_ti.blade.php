@@ -1,0 +1,220 @@
+@extends('layouts.admin')
+
+@section('main-content')
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">List Data Alumni</h1>
+        <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+            For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official
+                DataTables documentation</a>.</p>
+
+        @if (session('success'))
+            <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
+        @if ($errors->any())
+            <div class="alert alert-danger border-left-danger" role="alert">
+                <ul class="pl-4 my-2">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
+            </div>
+            <div class="card-body">
+                <div id="status" style="width: 100%;height:400px;"></div>
+            </div>
+        </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
+            </div>
+            <div class="card-body">
+                <div id="methodology" style="width: 100%;height:400px;"></div>
+            </div>
+        </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
+            </div>
+            <div class="card-body">
+                <div id="every-methodology" style="width: 100%;height:400px;"></div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"
+        integrity="sha256-6EJwvQzVvfYP78JtAMKjkcsugfTSanqe4WGFpUdzo88=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script type="text/javascript">
+        var workStatus = @json($workStatus);
+        var {
+            ALUMNI,
+            ...averageMethod
+        } = @json($averageMethod);
+        var lectureScore = @json($lectureScore);
+        var demoScore = @json($demoScore);
+        var projectScore = @json($projectScore);
+        var internScore = @json($internScore);
+        var praticalScore = @json($praticalScore);
+        var fieldScore = @json($fieldScore);
+        var discussionScore = @json($discussionScore);
+
+        // Initialize the echarts instance based on the prepared dom
+        var prodiChart = echarts.init(document.getElementById('status'));
+        var methodChart = echarts.init(document.getElementById('methodology'));
+        var everyMethodChart = echarts.init(document.getElementById('every-methodology'));
+
+        console.log(lectureScore,demoScore,);
+        // Specify the configuration items and data for the chart
+        var prodiOption = {
+            title: {
+                text: 'Status Alumni'
+            },
+            dataset: {
+                dimensions: ['STATUS', 'JUMLAH'],
+                source: workStatus
+            },
+            tooltip: {
+                show: true
+            },
+            series: [{
+                name: 'Status Alumni',
+                type: 'pie',
+            }]
+        };
+
+        var methodOption = {
+            title: {
+                text: 'Rata - Rata Penilaian Methodologi Pengajaran (Round Up)',
+                subtext: 'Jumlah Responden: ' + ALUMNI
+            },
+            tooltip: {
+                show: true
+            },
+            legend: {
+                show: true,
+                right: 20
+            },
+            xAxis: {
+                type: 'category',
+                data: Object.keys(averageMethod)
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: 'Methodology',
+                type: 'bar',
+                data: Object.values(averageMethod)
+            }]
+        };
+
+        var everyMethodOption = {
+            title: {
+                text: 'Penilaian Methodologi Pengajaran',
+                subtext: 'Jumlah Responden: ' + ALUMNI
+            },
+            tooltip: {
+                show: true
+            },
+            legend: {
+                show: true,
+                right: 20
+            },
+            dataset: [{
+                dimensions: ['STATUS', 'JUMLAH'],
+                source:lectureScore
+            },
+            {
+                dimensions: ['STATUS', 'JUMLAH'],
+                source:demoScore
+            },
+            {
+                dimensions: ['STATUS', 'JUMLAH'],
+                source:projectScore
+            },
+            {
+                dimensions: ['STATUS', 'JUMLAH'],
+                source:internScore
+            },
+            {
+                dimensions: ['STATUS', 'JUMLAH'],
+                source:praticalScore
+            },
+            {
+                dimensions: ['STATUS', 'JUMLAH'],
+                source:fieldScore
+            },
+            {
+                dimensions: ['STATUS', 'JUMLAH'],
+                source:discussionScore
+            },
+        ],
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: 'Lecture',
+                type: 'bar',
+                datasetIndex: 0
+            },
+            {
+                name: 'Demo',
+                type: 'bar',
+                datasetIndex: 1
+            },
+            {
+                name: 'Project',
+                type: 'bar',
+                datasetIndex: 2
+            },
+            {
+                name: 'Internship',
+                type: 'bar',
+                datasetIndex: 3
+            },
+            {
+                name: 'Pratical',
+                type: 'bar',
+                datasetIndex: 4
+            },
+            {
+                name: 'Field',
+                type: 'bar',
+                datasetIndex: 5
+            },
+            {
+                name: 'Discussion',
+                type: 'bar',
+                datasetIndex: 6
+            },
+        ]
+        };
+
+        // Display the chart using the configuration items and data just specified.
+        prodiChart.setOption(prodiOption);
+        methodChart.setOption(methodOption);
+        everyMethodChart.setOption(everyMethodOption);
+    </script>
+@endsection
