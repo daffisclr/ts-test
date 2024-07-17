@@ -84,10 +84,19 @@
                                                 <td>{{ $data->alumni != null ? $data->alumni->jenjang : '-' }}</td>
                                                 <td>{{ $data->alumni != null ? $data->alumni->tahun_masuk : '-' }}</td>
                                                 <td>{{ $data->alumni != null ? $data->alumni->tahun_lulus : '-' }}</td>
-                                                <td><button class="btn btn-primary btn-sm" data-toggle="modal"
+                                                <td>
+                                                    <button class="btn btn-primary btn-sm" data-toggle="modal"
                                                         data-target="#modal-detail-{{ $data->id }}">
                                                         <i class="fas fa-eye"></i>
-                                                    </button></td>
+                                                    </button>
+
+                                                    <br>
+                                                    {{-- Liat Histori Form Tracer Study --}}
+                                                    <button class="btn btn-warning btn-sm"
+                                                        data-target="">
+                                                        <i class="fa-regular fa-clipboard"></i>
+                                                    </button>
+                                                </td>
                                             </tr>
                                         </tbody>
                                         <div class="modal fade" id="modal-detail-{{ $data->id }}" tabindex="-1"

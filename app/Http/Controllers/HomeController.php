@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Alumni;
+use App\Models\kuesioner\Work;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -28,7 +30,7 @@ class HomeController extends Controller
     {
         $users = User::where('role','Alumni')->count();
 
-        $alumni_ti = Alumni::where('prodi', 'Teknik Informatika')->count();
+        $alumni_ti = Alumni::where('prodi','Teknik Informatika')->count();
 
         $alumni_tmj = Alumni::where('prodi', 'Teknik Multimedia dan Jaringan')->count();
 
@@ -36,7 +38,11 @@ class HomeController extends Controller
 
         $alumni_tkj = Alumni::where('prodi', 'Teknik Komputer dan Jaringan')->count();
 
+        $count_ts = DB::table('kuesioner')->count();
+
         $pendapatan = DB::table('kuesioner_work')->avg('salary');
+
+        $masa_tunggu = DB::table('kuesioner_work')->avg('job_acquired_time');
 
         $widget = [
             'users' => $users,
@@ -44,6 +50,8 @@ class HomeController extends Controller
             'alumni_tmj' => $alumni_tmj,
             'alumni_tmd' => $alumni_tmd,
             'alumni_tkj' => $alumni_tkj,
+            'count_ts' => $count_ts,
+            'masa_tunggu' => $masa_tunggu,
             'pendapatan' => $pendapatan
             //...
         ];
