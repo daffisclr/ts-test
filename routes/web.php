@@ -26,6 +26,10 @@ Route::get('/validasi_pengguna_alumni', function (){
     return view('pengguna_alumni.validate');
 });
 
+Route::get('/survey_pengguna', function(){
+    return view('pengguna_alumni.kuesioner_penilaian_alumni');
+});
+
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
