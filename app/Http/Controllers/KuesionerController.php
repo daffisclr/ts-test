@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\kuesioner\Work;
 use App\Models\kuesioner\Kuesioner_Tracer_Study;
+use App\Models\kuesioner\Study;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
@@ -174,31 +175,29 @@ class KuesionerController extends Controller
     public function charts_ti()
     {
         $prodi = 'Teknik Informatika';
-        return $this->kuesioner_data($prodi);   
+        return $this->kuesioner_data($prodi);
     }
 
     public function charts_tmj()
     {
         $prodi = 'Teknik Multimedia dan Jaringan';
-        return $this->kuesioner_data($prodi);   
-
+        return $this->kuesioner_data($prodi);
     }
 
     public function charts_tmd()
     {
         $prodi = 'Teknik Multimedia Digital';
-        return $this->kuesioner_data($prodi);   
-
+        return $this->kuesioner_data($prodi);
     }
 
     public function charts_tkj()
     {
         $prodi = 'Teknik Komputer dan Jaringan';
-        return $this->kuesioner_data($prodi);   
-
+        return $this->kuesioner_data($prodi);
     }
 
-    public function methodology_score($prodi) {
+    public function methodology_score($prodi)
+    {
         $method = [
             'LECTURE_METHOD',
             'DEMO_METHOD',
@@ -218,12 +217,42 @@ class KuesionerController extends Controller
         return $method_data;
     }
 
-    public function kuesioner_data($prodi) {
+    public function kuesioner_data($prodi)
+    {
         $workStatus = Work::countWorkStatus($prodi);
         $averageMethod = Kuesioner_Tracer_Study::countAverageMethod($prodi);
         $jobPosition = Work::countJobPosition($prodi);
+        $method_data = $this->methodology_score($prodi);
 
-       $method_data = $this->methodology_score($prodi);
+        $type = [
+            "Instansi Pemerintah",
+            "BUMN/BUMD",
+            "Institusi/Organisasi Multilateral",
+            "Organisasi non-profit/Lembaga Swadaya Masyarakat",
+            "Perusahaan swasta",
+            "Wiraswasta/perusahaan sendiri",
+            "5",
+        ];
+
+        $company_type = Work::countCompany($prodi, 'COMPANY_TYPE', $type);
+
+        $type = [
+            "Lokal/wilayah/wiraswasta tidak berbadan hukum",
+            "Nasional/wiraswasta berbadan hukum",
+            "Multinasional/internasional"
+        ];
+        
+        $company_level = Work::countCompany($prodi, 'COMPANY_LEVEL', $type);
+        
+        $education_location = Study::countFurtherEducation($prodi, 'LOCATION', [
+            "Dalam Negeri",
+            "Luar Negeri",
+        ]);
+
+        $education_payment = Study::countFurtherEducation($prodi, 'PAYMENT_TYPE', [
+            "Biaya Sendiri",
+            "Beasiswa",
+        ]);
 
         return view('tracer_study.chart', [
             'workStatus' => $workStatus,
@@ -236,6 +265,10 @@ class KuesionerController extends Controller
             'fieldScore' => $method_data['FIELD_METHOD'],
             'discussionScore' => $method_data['DISCUSSION_METHOD'],
             'jobPosition' => $jobPosition,
+            'company_type' => $company_type,
+            'company_level' => $company_level,
+            'education_location' => $education_location,
+            'education_payment' => $education_payment,
         ]);
     }
 }
