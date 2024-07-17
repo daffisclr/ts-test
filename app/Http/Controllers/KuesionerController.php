@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\kuesioner\Work;
 use App\Models\kuesioner\Kuesioner_Tracer_Study;
+use App\Models\kuesioner\Study;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
@@ -221,16 +222,7 @@ class KuesionerController extends Controller
         $workStatus = Work::countWorkStatus($prodi);
         $averageMethod = Kuesioner_Tracer_Study::countAverageMethod($prodi);
         $jobPosition = Work::countJobPosition($prodi);
-
-        $status = [
-            "Instansi Pemerintah",
-            "BUMN/BUMD",
-            "Institusi/Organisasi Multilateral",
-            "Organisasi non-profit/Lembaga Swadaya Masyarakat",
-            "Perusahaan swasta",
-            "Wiraswasta/perusahaan sendiri",
-            "5",
-        ];
+        $method_data = $this->methodology_score($prodi);
 
         $type = [
             "Instansi Pemerintah",
@@ -251,8 +243,16 @@ class KuesionerController extends Controller
         ];
         
         $company_level = Work::countCompany($prodi, 'COMPANY_LEVEL', $type);
+        
+        $education_location = Study::countFurtherEducation($prodi, 'LOCATION', [
+            "Dalam Negeri",
+            "Luar Negeri",
+        ]);
 
-        $method_data = $this->methodology_score($prodi);
+        $education_payment = Study::countFurtherEducation($prodi, 'PAYMENT_TYPE', [
+            "Biaya Sendiri",
+            "Beasiswa",
+        ]);
 
         return view('tracer_study.chart', [
             'workStatus' => $workStatus,
@@ -267,6 +267,8 @@ class KuesionerController extends Controller
             'jobPosition' => $jobPosition,
             'company_type' => $company_type,
             'company_level' => $company_level,
+            'education_location' => $education_location,
+            'education_payment' => $education_payment,
         ]);
     }
 }

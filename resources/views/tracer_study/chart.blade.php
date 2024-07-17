@@ -92,6 +92,15 @@
             </div>
         </div>
 
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
+            </div>
+            <div class="card-body">
+                <div id="education" style="width: 100%;height:400px;"></div>
+            </div>
+        </div>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"
         integrity="sha256-6EJwvQzVvfYP78JtAMKjkcsugfTSanqe4WGFpUdzo88=" crossorigin="anonymous"></script>
@@ -115,6 +124,8 @@
         var positionData = @json($jobPosition);
         var companyTypeData = @json($company_type);
         var companyLevelData = @json($company_level);
+        var educationLocation = @json($education_location);
+        var educationPayment = @json($education_payment);
 
         // Initialize the echarts instance based on the prepared dom
         var prodiChart = echarts.init(document.getElementById('status'));
@@ -128,6 +139,7 @@
             echarts.init(document.getElementById('job-position-2'))
         ];
         var companyTypeChart = echarts.init(document.getElementById('company-type'));
+        var educationChart = echarts.init(document.getElementById('education'));
 
         // Specify the configuration items and data for the chart
         var prodiOption = {
@@ -396,6 +408,36 @@
             ]
         };
 
+        var educationOption = {
+            title: {
+                text: 'Jumlah Alumni yang Melanjutkan Studi',
+                left: 'center'
+            },
+            dataset: [{
+                dimensions: ['LOCATION', 'JUMLAH'],
+                source: educationLocation
+            }, {
+                dimensions: ['PAYMENT_TYPE', 'JUMLAH'],
+                source: educationPayment
+            }, ],
+            tooltip: {
+                show: true
+            },
+            series: [{
+                    name: 'Lokasi Studi Alumni',
+                    type: 'pie',
+                    center: ['25%', '50%'],
+                    datasetIndex: 0
+                },
+                {
+                    name: 'Pembiayaan Studi Alumni',
+                    type: 'pie',
+                    center: ['75%', '50%'],
+                    datasetIndex: 1
+                }
+            ]
+        };
+
         // Display the chart using the configuration items and data just specified.
         prodiChart.setOption(prodiOption);
         methodChart.setOption(methodOption);
@@ -404,5 +446,6 @@
             element.setOption(positionOption[index]);
         });
         companyTypeChart.setOption(companyTypeOption);
+        educationChart.setOption(educationOption);
     </script>
 @endsection
