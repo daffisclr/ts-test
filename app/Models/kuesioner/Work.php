@@ -155,7 +155,7 @@ WHERE
         return $result;
     }
 
-    public static function countCompany(string $prodi, string $column, array $status)
+    public static function countCompany(string $prodi, string $column, array $type, string $additional_condition = '')
     {
         $result = DB::select("SELECT 
 KW.$column,
@@ -168,25 +168,16 @@ LEFT JOIN ALUMNIS A ON
 	A.ID = K.ALUMNI_ID
 WHERE
 	A.PRODI = '$prodi'
+    $additional_condition
 	GROUP BY KW.$column ;");
-
-        $status = [
-            "Instansi Pemerintah",
-            "BUMN/BUMD",
-            "Institusi/Organisasi Multilateral",
-            "Organisasi non-profit/Lembaga Swadaya Masyarakat",
-            "Perusahaan swasta",
-            "Wiraswasta/perusahaan sendiri",
-            "5",
-        ];
 
         $statusMap = [];
         foreach ($result as $row) {
             $statusMap[$row->$column] = $row->JUMLAH;
         }
 
-        // Iterate over $status array to add missing statuses with jumlah 0
-        foreach ($status as $key) {
+        // Iterate over $type array to add missing statuses with jumlah 0
+        foreach ($type as $key) {
             if (!isset($statusMap[$key])) {
                 $result[] = (object) [$column => $key, 'JUMLAH' => 0];
             }

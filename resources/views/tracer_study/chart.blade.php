@@ -83,6 +83,15 @@
             </div>
         </div>
 
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
+            </div>
+            <div class="card-body">
+                <div id="company-type" style="width: 100%;height:400px;"></div>
+            </div>
+        </div>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"
         integrity="sha256-6EJwvQzVvfYP78JtAMKjkcsugfTSanqe4WGFpUdzo88=" crossorigin="anonymous"></script>
@@ -104,6 +113,8 @@
         var fieldScore = @json($fieldScore);
         var discussionScore = @json($discussionScore);
         var positionData = @json($jobPosition);
+        var companyTypeData = @json($company_type);
+        var companyLevelData = @json($company_level);
 
         // Initialize the echarts instance based on the prepared dom
         var prodiChart = echarts.init(document.getElementById('status'));
@@ -116,6 +127,7 @@
             echarts.init(document.getElementById('job-position-1')),
             echarts.init(document.getElementById('job-position-2'))
         ];
+        var companyTypeChart = echarts.init(document.getElementById('company-type'));
 
         // Specify the configuration items and data for the chart
         var prodiOption = {
@@ -330,22 +342,58 @@
                 type: 'value'
             },
             series: [{
-                name: 'Lama Diterima (bulan)',
-                type: 'bar',
+                    name: 'Lama Diterima (bulan)',
+                    type: 'bar',
+                },
+                {
+                    name: 'Jumlah Melamar',
+                    type: 'bar',
+                },
+                {
+                    name: 'Jumlah Wawancara',
+                    type: 'bar',
+                },
+                {
+                    name: 'Jumlah Follow Up',
+                    type: 'bar',
+                },
+            ]
+        };
+
+        var companyTypeOption = {
+            title: {
+                text: 'Jumlah Alumni yang Bekerja',
+                left: 'center'
             },
-            {
-                name: 'Jumlah Melamar',
-                type: 'bar',
+            dataset: [{
+                dimensions: ['COMPANY_TYPE', 'JUMLAH'],
+                source: companyTypeData
+            }, {
+                dimensions: ['COMPANY_LEVEL', 'JUMLAH'],
+                source: companyLevelData
+            }, ],
+            tooltip: {
+                show: true
             },
-            {
-                name: 'Jumlah Wawancara',
-                type: 'bar',
-            },
-            {
-                name: 'Jumlah Follow Up',
-                type: 'bar',
-            },
-         ]
+            series: [{
+                    name: 'Jumlah Alumni Bekerja Berdasarkan Tipe Perusahaan',
+                    type: 'pie',
+                    center: ['25%', '50%'],
+                    label: {
+                        formatter: function(params) {
+                            if (params.name == 5 || params.name == "5") return 'Lainnya'
+                            return params.name
+                        }
+                    },
+                    datasetIndex: 0
+                },
+                {
+                    name: 'Jumlah Alumni Bekerja Berdasarkan Tingkat Perusahaan',
+                    type: 'pie',
+                    center: ['75%', '50%'],
+                    datasetIndex: 1
+                }
+            ]
         };
 
         // Display the chart using the configuration items and data just specified.
@@ -355,5 +403,6 @@
         positionChart.forEach((element, index) => {
             element.setOption(positionOption[index]);
         });
+        companyTypeChart.setOption(companyTypeOption);
     </script>
 @endsection
