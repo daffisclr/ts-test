@@ -56,6 +56,33 @@
             </div>
         </div>
 
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
+            </div>
+            <div class="card-body">
+                <div id="job-position-0" style="width: 100%;height:400px;"></div>
+            </div>
+        </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
+            </div>
+            <div class="card-body">
+                <div id="job-position-1" style="width: 100%;height:400px;"></div>
+            </div>
+        </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
+            </div>
+            <div class="card-body">
+                <div id="job-position-2" style="width: 100%;height:400px;"></div>
+            </div>
+        </div>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"
         integrity="sha256-6EJwvQzVvfYP78JtAMKjkcsugfTSanqe4WGFpUdzo88=" crossorigin="anonymous"></script>
@@ -76,13 +103,20 @@
         var praticalScore = @json($praticalScore);
         var fieldScore = @json($fieldScore);
         var discussionScore = @json($discussionScore);
+        var positionData = @json($jobPosition);
 
         // Initialize the echarts instance based on the prepared dom
         var prodiChart = echarts.init(document.getElementById('status'));
         var methodChart = echarts.init(document.getElementById('methodology'));
         var everyMethodChart = echarts.init(document.getElementById('every-methodology'));
+        var positionChart = []
 
-        console.log(lectureScore,demoScore,);
+        positionChart = [
+            echarts.init(document.getElementById('job-position-0')),
+            echarts.init(document.getElementById('job-position-1')),
+            echarts.init(document.getElementById('job-position-2'))
+        ];
+
         // Specify the configuration items and data for the chart
         var prodiOption = {
             title: {
@@ -140,34 +174,34 @@
                 right: 20
             },
             dataset: [{
-                dimensions: ['SCORE', 'JUMLAH'],
-                source:lectureScore
-            },
-            {
-                dimensions: ['SCORE', 'JUMLAH'],
-                source:demoScore
-            },
-            {
-                dimensions: ['SCORE', 'JUMLAH'],
-                source:projectScore
-            },
-            {
-                dimensions: ['SCORE', 'JUMLAH'],
-                source:internScore
-            },
-            {
-                dimensions: ['SCORE', 'JUMLAH'],
-                source:praticalScore
-            },
-            {
-                dimensions: ['SCORE', 'JUMLAH'],
-                source:fieldScore
-            },
-            {
-                dimensions: ['SCORE', 'JUMLAH'],
-                source:discussionScore
-            },
-        ],
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: lectureScore
+                },
+                {
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: demoScore
+                },
+                {
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: projectScore
+                },
+                {
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: internScore
+                },
+                {
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: praticalScore
+                },
+                {
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: fieldScore
+                },
+                {
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: discussionScore
+                },
+            ],
             xAxis: {
                 type: 'category'
             },
@@ -175,46 +209,151 @@
                 type: 'value'
             },
             series: [{
-                name: 'Lecture',
+                    name: 'Lecture',
+                    type: 'bar',
+                    datasetIndex: 0
+                },
+                {
+                    name: 'Demo',
+                    type: 'bar',
+                    datasetIndex: 1
+                },
+                {
+                    name: 'Project',
+                    type: 'bar',
+                    datasetIndex: 2
+                },
+                {
+                    name: 'Internship',
+                    type: 'bar',
+                    datasetIndex: 3
+                },
+                {
+                    name: 'Pratical',
+                    type: 'bar',
+                    datasetIndex: 4
+                },
+                {
+                    name: 'Field',
+                    type: 'bar',
+                    datasetIndex: 5
+                },
+                {
+                    name: 'Discussion',
+                    type: 'bar',
+                    datasetIndex: 6
+                },
+            ]
+        };
+
+        var positionOption = []
+
+        positionOption[0] = {
+            title: {
+                text: 'Jabatan Alumni',
+                subtext: 'Jumlah Responden: ' + ALUMNI
+            },
+            dataset: {
+                dimensions: ['POSITION', 'JUMLAH'],
+                source: positionData
+            },
+            legend: {
+                show: true,
+                right: 20
+            },
+            tooltip: {
+                show: true
+            },
+            series: [{
+                name: 'Jabatan Alumni',
+                type: 'pie',
+            }]
+        };
+
+        positionOption[1] = {
+            title: {
+                text: 'Rata-rata Upah Alumni per Jabatan',
+                subtext: 'Jumlah Responden: ' + ALUMNI
+            },
+            tooltip: {
+                show: true
+            },
+            legend: {
+                show: true,
+                right: 20
+            },
+            dataset: [{
+                dimensions: [
+                    'POSITION',
+                    "AVG_SALARY",
+                ],
+                source: positionData
+            }, ],
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: 'Upah (Rupiah)',
                 type: 'bar',
-                datasetIndex: 0
+            }, ]
+        };
+
+        positionOption[2] = {
+            title: {
+                text: 'Rata-rata Alumni Mencari Pekerjaan',
+                subtext: 'Jumlah Responden: ' + ALUMNI
+            },
+            tooltip: {
+                show: true
+            },
+            legend: {
+                show: true,
+                right: 20
+            },
+            dataset: [{
+                dimensions: [
+                    'POSITION',
+                    "AVG_JOB_ACQUIRED",
+                    "AVG_APPLICATION",
+                    "AVG_COMPANY_INTERVIEWED",
+                    "AVG_COMPANY_RESPONDED",
+                ],
+                source: positionData
+            }, ],
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: 'Lama Diterima (bulan)',
+                type: 'bar',
             },
             {
-                name: 'Demo',
+                name: 'Jumlah Melamar',
                 type: 'bar',
-                datasetIndex: 1
             },
             {
-                name: 'Project',
+                name: 'Jumlah Wawancara',
                 type: 'bar',
-                datasetIndex: 2
             },
             {
-                name: 'Internship',
+                name: 'Jumlah Follow Up',
                 type: 'bar',
-                datasetIndex: 3
             },
-            {
-                name: 'Pratical',
-                type: 'bar',
-                datasetIndex: 4
-            },
-            {
-                name: 'Field',
-                type: 'bar',
-                datasetIndex: 5
-            },
-            {
-                name: 'Discussion',
-                type: 'bar',
-                datasetIndex: 6
-            },
-        ]
+         ]
         };
 
         // Display the chart using the configuration items and data just specified.
         prodiChart.setOption(prodiOption);
         methodChart.setOption(methodOption);
         everyMethodChart.setOption(everyMethodOption);
+        positionChart.forEach((element, index) => {
+            element.setOption(positionOption[index]);
+        });
     </script>
 @endsection

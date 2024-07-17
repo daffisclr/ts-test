@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\kuesioner\Work;
+use App\Models\kuesioner\Kuesioner_Tracer_Study;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
@@ -173,106 +174,68 @@ class KuesionerController extends Controller
     public function charts_ti()
     {
         $prodi = 'Teknik Informatika';
-        $workStatus = Work::countWorkStatus($prodi);
-        $averageMethod = Work::countAverageMethod($prodi);
-        $lectureScore = Work::countEveryMethod($prodi, 'LECTURE_METHOD');
-        $demoScore = Work::countEveryMethod($prodi, 'DEMO_METHOD');
-        $projectScore = Work::countEveryMethod($prodi, 'PROJECT_METHOD');
-        $internScore = Work::countEveryMethod($prodi, 'INTERNSHIP_METHOD');
-        $praticalScore = Work::countEveryMethod($prodi, 'PRACTICAL_METHOD');
-        $fieldScore = Work::countEveryMethod($prodi, 'FIELD_METHOD');
-        $discussionScore = Work::countEveryMethod($prodi, 'DISCUSSION_METHOD');
-
-        // dd($discussionScore);
-
-        return view('tracer_study.chart', [
-            'workStatus' => $workStatus,
-            'averageMethod' => $averageMethod,
-            'lectureScore' => $lectureScore,
-            'demoScore' => $demoScore,
-            'projectScore' => $projectScore,
-            'internScore' => $internScore,
-            'praticalScore' => $praticalScore,
-            'fieldScore' => $fieldScore,
-            'discussionScore' => $discussionScore,
-        ]);
+        return $this->kuesioner_data($prodi);   
     }
 
     public function charts_tmj()
     {
         $prodi = 'Teknik Multimedia dan Jaringan';
-        $workStatus = Work::countWorkStatus($prodi);
-        $averageMethod = Work::countAverageMethod($prodi);
-        $lectureScore = Work::countEveryMethod($prodi, 'LECTURE_METHOD');
-        $demoScore = Work::countEveryMethod($prodi, 'DEMO_METHOD');
-        $projectScore = Work::countEveryMethod($prodi, 'PROJECT_METHOD');
-        $internScore = Work::countEveryMethod($prodi, 'INTERNSHIP_METHOD');
-        $praticalScore = Work::countEveryMethod($prodi, 'PRACTICAL_METHOD');
-        $fieldScore = Work::countEveryMethod($prodi, 'FIELD_METHOD');
-        $discussionScore = Work::countEveryMethod($prodi, 'DISCUSSION_METHOD');
+        return $this->kuesioner_data($prodi);   
 
-        return view('tracer_study.chart', [
-            'workStatus' => $workStatus,
-            'averageMethod' => $averageMethod,
-            'lectureScore' => $lectureScore,
-            'demoScore' => $demoScore,
-            'projectScore' => $projectScore,
-            'internScore' => $internScore,
-            'praticalScore' => $praticalScore,
-            'fieldScore' => $fieldScore,
-            'discussionScore' => $discussionScore,
-        ]);
     }
 
     public function charts_tmd()
     {
         $prodi = 'Teknik Multimedia Digital';
-        $workStatus = Work::countWorkStatus($prodi);
-        $averageMethod = Work::countAverageMethod($prodi);
-        $lectureScore = Work::countEveryMethod($prodi, 'LECTURE_METHOD');
-        $demoScore = Work::countEveryMethod($prodi, 'DEMO_METHOD');
-        $projectScore = Work::countEveryMethod($prodi, 'PROJECT_METHOD');
-        $internScore = Work::countEveryMethod($prodi, 'INTERNSHIP_METHOD');
-        $praticalScore = Work::countEveryMethod($prodi, 'PRACTICAL_METHOD');
-        $fieldScore = Work::countEveryMethod($prodi, 'FIELD_METHOD');
-        $discussionScore = Work::countEveryMethod($prodi, 'DISCUSSION_METHOD');
+        return $this->kuesioner_data($prodi);   
 
-        return view('tracer_study.chart', [
-            'workStatus' => $workStatus,
-            'averageMethod' => $averageMethod,
-            'lectureScore' => $lectureScore,
-            'demoScore' => $demoScore,
-            'projectScore' => $projectScore,
-            'internScore' => $internScore,
-            'praticalScore' => $praticalScore,
-            'fieldScore' => $fieldScore,
-            'discussionScore' => $discussionScore,
-        ]);
     }
 
     public function charts_tkj()
     {
         $prodi = 'Teknik Komputer dan Jaringan';
+        return $this->kuesioner_data($prodi);   
+
+    }
+
+    public function methodology_score($prodi) {
+        $method = [
+            'LECTURE_METHOD',
+            'DEMO_METHOD',
+            'PROJECT_METHOD',
+            'INTERNSHIP_METHOD',
+            'PRACTICAL_METHOD',
+            'FIELD_METHOD',
+            'DISCUSSION_METHOD',
+        ];
+
+        $method_data = [];
+
+        foreach ($method as $key => $value) {
+            $method_data[$value] = Kuesioner_Tracer_Study::countEveryMethod($prodi, $value);
+        }
+
+        return $method_data;
+    }
+
+    public function kuesioner_data($prodi) {
         $workStatus = Work::countWorkStatus($prodi);
-        $averageMethod = Work::countAverageMethod($prodi);
-        $lectureScore = Work::countEveryMethod($prodi, 'LECTURE_METHOD');
-        $demoScore = Work::countEveryMethod($prodi, 'DEMO_METHOD');
-        $projectScore = Work::countEveryMethod($prodi, 'PROJECT_METHOD');
-        $internScore = Work::countEveryMethod($prodi, 'INTERNSHIP_METHOD');
-        $praticalScore = Work::countEveryMethod($prodi, 'PRACTICAL_METHOD');
-        $fieldScore = Work::countEveryMethod($prodi, 'FIELD_METHOD');
-        $discussionScore = Work::countEveryMethod($prodi, 'DISCUSSION_METHOD');
+        $averageMethod = Kuesioner_Tracer_Study::countAverageMethod($prodi);
+        $jobPosition = Work::countJobPosition($prodi);
+
+       $method_data = $this->methodology_score($prodi);
 
         return view('tracer_study.chart', [
             'workStatus' => $workStatus,
             'averageMethod' => $averageMethod,
-            'lectureScore' => $lectureScore,
-            'demoScore' => $demoScore,
-            'projectScore' => $projectScore,
-            'internScore' => $internScore,
-            'praticalScore' => $praticalScore,
-            'fieldScore' => $fieldScore,
-            'discussionScore' => $discussionScore,
+            'lectureScore' => $method_data['LECTURE_METHOD'],
+            'demoScore' => $method_data['DEMO_METHOD'],
+            'projectScore' => $method_data['PROJECT_METHOD'],
+            'internScore' => $method_data['INTERNSHIP_METHOD'],
+            'praticalScore' => $method_data['PRACTICAL_METHOD'],
+            'fieldScore' => $method_data['FIELD_METHOD'],
+            'discussionScore' => $method_data['DISCUSSION_METHOD'],
+            'jobPosition' => $jobPosition,
         ]);
     }
 }
