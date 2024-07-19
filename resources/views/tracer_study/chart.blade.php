@@ -101,6 +101,42 @@
             </div>
         </div>
 
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
+            </div>
+            <div class="card-body">
+                <div id="compatibility" style="width: 100%;height:400px;"></div>
+            </div>
+        </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
+            </div>
+            <div class="card-body">
+                <div id="work-hunt" style="width: 100%;height:400px;"></div>
+            </div>
+        </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
+            </div>
+            <div class="card-body">
+                <div id="competency-work" style="width: 100%;height:400px;"></div>
+            </div>
+        </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
+            </div>
+            <div class="card-body">
+                <div id="competency-graduation" style="width: 100%;height:400px;"></div>
+            </div>
+        </div>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"
         integrity="sha256-6EJwvQzVvfYP78JtAMKjkcsugfTSanqe4WGFpUdzo88=" crossorigin="anonymous"></script>
@@ -126,6 +162,13 @@
         var companyLevelData = @json($company_level);
         var educationLocation = @json($education_location);
         var educationPayment = @json($education_payment);
+        var educationReason = @json($education_reason);
+        var workCompatibility = @json($work_compatibility);
+        var workHunt = @json($work_hunt);
+        var {
+            work,
+            graduation
+        } = @json($competency_data);
 
         // Initialize the echarts instance based on the prepared dom
         var prodiChart = echarts.init(document.getElementById('status'));
@@ -140,6 +183,10 @@
         ];
         var companyTypeChart = echarts.init(document.getElementById('company-type'));
         var educationChart = echarts.init(document.getElementById('education'));
+        var compatibilityChart = echarts.init(document.getElementById('compatibility'));
+        var workHuntChart = echarts.init(document.getElementById('work-hunt'));
+        var competencyWorkChart = echarts.init(document.getElementById('competency-work'));
+        var competencyGraduationChart = echarts.init(document.getElementById('competency-graduation'));
 
         // Specify the configuration items and data for the chart
         var prodiOption = {
@@ -419,6 +466,9 @@
             }, {
                 dimensions: ['PAYMENT_TYPE', 'JUMLAH'],
                 source: educationPayment
+            }, {
+                dimensions: ['REASONS', 'JUMLAH'],
+                source: educationReason
             }, ],
             tooltip: {
                 show: true
@@ -426,15 +476,231 @@
             series: [{
                     name: 'Lokasi Studi Alumni',
                     type: 'pie',
-                    center: ['25%', '50%'],
+                    center: ['20%', '50%'],
                     datasetIndex: 0
                 },
                 {
                     name: 'Pembiayaan Studi Alumni',
                     type: 'pie',
-                    center: ['75%', '50%'],
+                    center: ['50%', '50%'],
                     datasetIndex: 1
+                },
+                {
+                    name: 'Pembiayaan Studi Alumni',
+                    type: 'pie',
+                    center: ['80%', '50%'],
+                    datasetIndex: 2
                 }
+            ]
+        };
+
+        var compatibilityOption = {
+            title: {
+                text: 'Jumlah Alumni dengan Pekerjaan yang Tidak Sesuai',
+            },
+            tooltip: {
+                show: true
+            },
+            dataset: {
+                dimensions: [
+                    'COMPATIBILITY_TYPE',
+                    "JUMLAH",
+                ],
+                source: workCompatibility
+            },
+            series: [{
+                name: 'Kecocokan Pekerjaan',
+                type: 'pie',
+            }, ]
+        };
+
+        var workHuntOption = {
+            title: {
+                text: 'Jumlah Methode Pencarian Pekerjaan',
+            },
+            tooltip: {
+                show: true
+            },
+            dataset: {
+                dimensions: [
+                    'JOB_HUNT_METHOD',
+                    "JUMLAH",
+                ],
+                source: workHunt
+            },
+            series: [{
+                name: 'Metode Pencarian',
+                type: 'pie',
+            }, ]
+        };
+
+        var competencyWorkOption = {
+            title: {
+                text: 'Penilaian Kompetensi Pada Pekerjaan',
+                subtext: 'Jumlah Responden: ' + ALUMNI
+            },
+            tooltip: {
+                show: true
+            },
+            legend: {
+                show: true,
+                right: 20
+            },
+            dataset: [{
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: work.ETHICS,
+                },
+                {
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: work.EXPERTISE,
+                },
+                {
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: work.ENGLISH,
+                },
+                {
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: work.TECH,
+                },
+                {
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: work.COMMUNICATION,
+                },
+                {
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: work.TEAMWORK,
+                },
+                {
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: work.DEVELOPMENT,
+                },
+            ],
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                    name: 'Ethics',
+                    type: 'bar',
+                    datasetIndex: 0,
+                },
+                {
+                    name: 'Expertise',
+                    type: 'bar',
+                    datasetIndex: 1,
+                },
+                {
+                    name: 'English',
+                    type: 'bar',
+                    datasetIndex: 2,
+                },
+                {
+                    name: 'Tech',
+                    type: 'bar',
+                    datasetIndex: 3,
+                },
+                {
+                    name: 'Communication',
+                    type: 'bar',
+                    datasetIndex: 4,
+                },
+                {
+                    name: 'Teamwork',
+                    type: 'bar',
+                    datasetIndex: 5,
+                },
+                {
+                    name: 'Development',
+                    type: 'bar',
+                    datasetIndex: 6,
+                },
+            ]
+        };
+
+        var competencyGraduationOption = {
+            title: {
+                text: 'Penilaian Kompetensi Pada Saat Lulus',
+                subtext: 'Jumlah Responden: ' + ALUMNI
+            },
+            tooltip: {
+                show: true
+            },
+            legend: {
+                show: true,
+                right: 20
+            },
+            dataset: [{
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: graduation.ETHICS,
+                },
+                {
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: graduation.EXPERTISE,
+                },
+                {
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: graduation.ENGLISH,
+                },
+                {
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: graduation.TECH,
+                },
+                {
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: graduation.COMMUNICATION,
+                },
+                {
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: graduation.TEAMWORK,
+                },
+                {
+                    dimensions: ['SCORE', 'JUMLAH'],
+                    source: graduation.DEVELOPMENT,
+                },
+            ],
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                    name: 'Ethics',
+                    type: 'bar',
+                    datasetIndex: 0,
+                },
+                {
+                    name: 'Expertise',
+                    type: 'bar',
+                    datasetIndex: 1,
+                },
+                {
+                    name: 'English',
+                    type: 'bar',
+                    datasetIndex: 2,
+                },
+                {
+                    name: 'Tech',
+                    type: 'bar',
+                    datasetIndex: 3,
+                },
+                {
+                    name: 'Communication',
+                    type: 'bar',
+                    datasetIndex: 4,
+                },
+                {
+                    name: 'Teamwork',
+                    type: 'bar',
+                    datasetIndex: 5,
+                },
+                {
+                    name: 'Development',
+                    type: 'bar',
+                    datasetIndex: 6,
+                },
             ]
         };
 
@@ -447,5 +713,9 @@
         });
         companyTypeChart.setOption(companyTypeOption);
         educationChart.setOption(educationOption);
+        compatibilityChart.setOption(compatibilityOption);
+        workHuntChart.setOption(workHuntOption);
+        competencyWorkChart.setOption(competencyWorkOption);
+        competencyGraduationChart.setOption(competencyGraduationOption);
     </script>
 @endsection

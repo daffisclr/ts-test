@@ -109,6 +109,7 @@ GROUP BY
             }
         }
 
+        usort($result, function($a, $b) {return strcmp($a->SCORE, $b->SCORE);});
         return $result;
     }
 }
