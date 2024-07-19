@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\kuesioner\Competency;
 use App\Models\kuesioner\Work;
 use App\Models\kuesioner\Kuesioner_Tracer_Study;
 use App\Models\kuesioner\Study;
+use App\Models\kuesioner\Work_Compatibility;
+use App\Models\kuesioner\Work_Hunt;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
@@ -217,12 +220,38 @@ class KuesionerController extends Controller
         return $method_data;
     }
 
+    public function competency_score($prodi)
+    {
+        $types = ['work', 'graduation'];
+
+        $categories = [
+            "ETHICS",
+            "EXPERTISE",
+            "ENGLISH",
+            "TECH",
+            "COMMUNICATION",
+            "TEAMWORK",
+            "DEVELOPMENT",
+        ];
+
+        $competency_data = [];
+
+        foreach ($types as $name => $type) {
+            foreach ($categories as $key => $category) {
+                $competency_data[$type][$category] = Competency::countCompetency($prodi, $type, $category);
+            }
+        }
+
+        return $competency_data;
+    }
+
     public function kuesioner_data($prodi)
     {
         $workStatus = Work::countWorkStatus($prodi);
         $averageMethod = Kuesioner_Tracer_Study::countAverageMethod($prodi);
         $jobPosition = Work::countJobPosition($prodi);
         $method_data = $this->methodology_score($prodi);
+        $competency_data = $this->competency_score($prodi);
 
         $type = [
             "Instansi Pemerintah",
@@ -241,9 +270,9 @@ class KuesionerController extends Controller
             "Nasional/wiraswasta berbadan hukum",
             "Multinasional/internasional"
         ];
-        
+
         $company_level = Work::countCompany($prodi, 'COMPANY_LEVEL', $type);
-        
+
         $education_location = Study::countFurtherEducation($prodi, 'LOCATION', [
             "Dalam Negeri",
             "Luar Negeri",
@@ -253,6 +282,17 @@ class KuesionerController extends Controller
             "Biaya Sendiri",
             "Beasiswa",
         ]);
+
+        $education_reason = Study::countFurtherEducation($prodi, 'REASONS', [
+            "Tuntutan profesi",
+            "Kesempatan beasiswa",
+            "Prestise",
+            "Belum ada keinginan untuk bekerja",
+        ]);
+
+        $work_compatibility = Work_Compatibility::countCompatibility($prodi);
+
+        $work_hunt = Work_Hunt::countWorkHunt($prodi);
 
         return view('tracer_study.chart', [
             'workStatus' => $workStatus,
@@ -269,6 +309,10 @@ class KuesionerController extends Controller
             'company_level' => $company_level,
             'education_location' => $education_location,
             'education_payment' => $education_payment,
+            'education_reason' => $education_reason,
+            'work_compatibility' => $work_compatibility,
+            'work_hunt' => $work_hunt,
+            'competency_data' => $competency_data,
         ]);
     }
 }
