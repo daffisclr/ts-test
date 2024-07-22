@@ -1172,7 +1172,7 @@
                                     ini
                                     saya memperoleh prospek karir yang baik <span class='hl'>(f1603)</span><br />
                                     <input type='checkbox' name='p_compatibility_type[3]' class='inp-f16'
-                                        value='Saya lebih suka bekerja di area pekerjaan yang tidak ada hubungannya dengan pendidikan saya '>
+                                        value='Saya lebih suka bekerja di area pekerjaan yang tidak ada hubungannya dengan pendidikan saya'>
                                     Saya lebih suka bekerja di area pekerjaan yang tidak ada hubungannya dengan
                                     pendidikan
                                     saya <span class='hl'>(f1604)</span><br />
