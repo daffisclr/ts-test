@@ -10,6 +10,7 @@ class Kuesioner extends Component
 {
     public $totalSteps = 2;
     public $currentStep = 1;
+    public $currentStatus = 0;
     public $regencies = [];
 
     public function mount()
@@ -33,6 +34,11 @@ class Kuesioner extends Component
         }
     }
 
+    public function change_alumni_status(int $section)
+    {
+        $this->currentStatus = $section;
+    }
+
     public function render()
     {
         $provinces = DB::table('provinces')->select(['id', 'name'])->get();
@@ -44,6 +50,4 @@ class Kuesioner extends Component
     {
         $this->regencies = DB::table('regencies')->select(['id', 'name'])->where('province_id', '=', $value)->get();
     }
-
-
 }
