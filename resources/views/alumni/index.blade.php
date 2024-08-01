@@ -92,10 +92,9 @@
 
                                                     <br>
                                                     {{-- Liat Histori Form Tracer Study --}}
-                                                    <button class="btn btn-warning btn-sm"
-                                                        data-target="">
+                                                    <a class="btn btn-warning btn-sm" href="{{ URL::route('alumni.view_kuesioner', [$data->id]) }}">
                                                         <i class="fa-regular fa-clipboard"></i>
-                                                    </button>
+                                                    </a>
                                                 </td>
                                             </tr>
                                         </tbody>

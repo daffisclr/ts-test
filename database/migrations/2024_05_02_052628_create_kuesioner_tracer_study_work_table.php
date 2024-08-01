@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('tracer_study_id')->nullable(false);
             $table->integer('job_position')->nullable();
+            $table->integer('job_before_status')->nullable();
             $table->integer('job_acquired_time')->nullable(false)->default(0);
             $table->string('company')->nullable();
             $table->string('salary')->nullable();

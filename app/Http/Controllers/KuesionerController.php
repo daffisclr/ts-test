@@ -37,7 +37,7 @@ class KuesionerController extends Controller
         DB::table('kuesioner')->insert([
             'alumni_id' => $user->alumni->id,
             'alumni_status' => $form_value['p_alumni_status'],
-            'university_payment_source' => $form_value['p_university_payment_source'],
+            'university_payment_source' => $form_value['p_university_payment_source'] == "7" ? $form_value['p_university_payment_source_remarks']: $form_value['p_university_payment_source'],
             'lecture_method' => $form_value['p_lecture_method'],
             'demo_method' => $form_value['p_demo_method'],
             'project_method' => $form_value['p_project_method'],
@@ -52,11 +52,11 @@ class KuesionerController extends Controller
         $last_kuesioner_id = DB::getPdo()->lastInsertId();
 
         if ($alumni_status == 1 || $alumni_status == 2) {
-            # code...
             //Table Kuesioner Work
             DB::table('kuesioner_work')->insert([
                 'tracer_study_id' => $last_kuesioner_id,
                 'job_position' => $alumni_status == 2 ? $form_value['p_job_position'] : null,
+                'job_before_status' => $form_value['p_job_before_status'],
                 'job_acquired_time' => $form_value['p_job_acquired_time'],
                 'company' => $form_value['p_company'],
                 'salary' => $form_value['p_salary'],
@@ -64,6 +64,8 @@ class KuesionerController extends Controller
                 'company_regency' => $form_value['p_company_regency'],
                 'company_type' => $form_value['p_company_type'] != '5' ? $form_value['p_company_type'] : $form_value['p_company_type_other'],
                 'company_level' => $form_value['p_company_level'],
+                "university_company_relation"=> $form_value['p_university_company_relation'],
+                "university_company_level"=> $form_value['p_university_company_level'],
                 'applied_company' => $form_value['p_applied_company'],
                 'applied_company_responded' => $form_value['p_applied_company_responded'],
                 'applied_company_interviewed' => $form_value['p_applied_company_interview'],
@@ -172,7 +174,7 @@ class KuesionerController extends Controller
         if (DB::transactionLevel() == 1) {
             DB::commit();
             response()->json(['response' => 'success', 'message' => 'Success! Data has been added.'], 200);
-            return redirect()->back();
+            return redirect()->route('home')->withSuccess('Success! Data has been added.');
         } else {
             DB::rollback();
             // something went wrong

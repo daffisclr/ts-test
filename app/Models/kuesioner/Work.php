@@ -25,6 +25,7 @@ class Work extends Model
     protected $fillable = [
         'tracer_study_id',
         'job_position',
+        'job_before_status',
         'job_acquired_time',
         'company',
         'salary',

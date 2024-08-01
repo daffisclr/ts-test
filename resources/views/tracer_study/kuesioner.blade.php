@@ -1,4 +1,12 @@
 @extends('layouts.admin')
 @section('main-content')
-@livewire('kuesioner')
+    @if (isset($kuesioner))
+        @livewire('kuesioner', [
+            'kuesioner' => $kuesioner,
+            'work' => $work,
+            'education' => $education,
+        ])
+    @else
+        @livewire('kuesioner')
+    @endif
 @endsection
