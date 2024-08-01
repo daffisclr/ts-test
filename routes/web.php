@@ -44,6 +44,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('list_alumni', 'index')->name('index');
         Route::get('chart_alumni', 'chart')->name('chart');
         Route::get('pdf_generator', 'export_pdf')->name('pdf');
+        Route::get('view_kuesioner/{user_id}', 'view_kuesioner')->name('view_kuesioner');
     });
 
     // Middleware Pengguna Alumni
