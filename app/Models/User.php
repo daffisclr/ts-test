@@ -81,4 +81,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Alumni::class);
     }
+
+    public function kps(): HasOne
+    {
+        return $this->hasOne(Kps::class);
+    }
 }

@@ -12,15 +12,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('alumnis', function (Blueprint $table) {
+        Schema::create('kps', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->string('prodi')->comment('Teknik Informatika - TI, Teknik Multimedia Jaringan - TMJ, Teknik Multimedia Digital - TMD, Teknik Komputer Jaringan - TKJ');
-            $table->string('jenjang')->comment('TI - TMJ - TMD = D4  / TKJ = D1');
-            $table->enum('jenis_kelamin', ['Laki-Laki', 'Perempuan']);
-            $table->enum('agama', ['Islam', 'Kristen Protestan', 'Kristen Katolik', 'Hindu', 'Buddha', 'Khonghucu']);
-            $table->string('tahun_masuk');
-            $table->string('tahun_lulus');
             $table->timestamps();
         });
     }
@@ -30,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('alumnis');
+        Schema::dropIfExists('kps');
     }
 };
