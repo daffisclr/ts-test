@@ -19,7 +19,7 @@
     @endif
 
     @if (auth()->user()->role == 'Admin')
-       @include('assets.card')
+        @include('assets.card')
     @endif
 
     <div class="row">
@@ -42,16 +42,25 @@
                     </h4>
 
                     <div class="text-center">
-                        <a href="{{ route('profile') }}" class="btn btn-primary" role="button">LENGKAPI DATA</a>
+                        @if (auth()->user()->alumni)
+                            @if ($count_answer > 0)
+                                <p class="mt-3 text-primary" style="font-size: 30px">
+                                    Terimakasih telah mengisi Tracer Study, jawaban anda sangat membantu kami dalam
+                                    pengembangan
+                                    JTIK PNJ.
+                                </p>
+                            @else
+                                @if ($count_answer == 0)
+                                    <a href="{{ route('tracer-study.kuesioner') }}" class="btn btn-primary"
+                                        role="button">ISI KUESIONER</a>
+                                @endif
+                            @endif
+                        @else
+                            @if (auth()->user()->role != 'Admin')
+                                <a href="{{ route('profile') }}" class="btn btn-primary" role="button">LENGKAPI DATA</a>
+                            @endif
+                        @endif
                     </div>
-
-                    @if (auth()->user()->role == 'Alumni')
-                    <br><hr>
-
-                    <div class="text-center">
-                        <a href="{{ route('tracer-study.kuesioner') }}" class="btn btn-primary" role="button">ISI KUESIONER</a>
-                    </div>
-                    @endif
                 </div>
             </div>
         </div>

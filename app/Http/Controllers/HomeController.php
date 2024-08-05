@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Livewire\Kuesioner;
 use App\Models\Alumni;
+use App\Models\kuesioner\Kuesioner_Tracer_Study;
 use App\Models\kuesioner\Work;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -56,7 +57,13 @@ class HomeController extends Controller
             //...
         ];
         $count_answer = 0;
+        if (auth()->user()->role == 'Alumni') {
+            $count_answer  = DB::table('kuesioner')->where('alumni_id', auth()->id())->count();
+        }
 
-        return view('home', compact('widget'));
+        return view('home', [
+            'widget' => $widget,
+            'count_answer' => $count_answer
+        ]);
     }
 }
