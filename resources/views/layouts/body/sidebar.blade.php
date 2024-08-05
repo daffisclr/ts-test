@@ -69,15 +69,13 @@
                 </div>
             </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider">
 
-        <!-- Heading -->
+        {{-- <!-- Heading -->
         <div class="sidebar-heading">
             {{ __('Pengguna Alumni') }}
-        </div>
+        </div> --}}
 
-        <!-- Nav Item - Invite Pengguna Alumni -->
+        {{-- <!-- Nav Item - Invite Pengguna Alumni -->
         <li class="nav-item {{ Nav::isRoute('pengguna-alumni.invitation') }}">
             <a class="nav-link" href="{{ route('pengguna-alumni.invitation') }}">
                 <i class="fa-solid fa-envelopes-bulk"></i>
@@ -91,7 +89,7 @@
                 <i class="fa-solid fa-user-tie"></i>
                 <span>{{ __('List Pengguna Alumni') }}</span>
             </a>
-        </li>
+        </li> --}}
 
         <!-- Divider -->
         <hr class="sidebar-divider">
