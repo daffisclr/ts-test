@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "arielmejiadev/larapex-charts": "^2.1",
         "azishapidin/indoregion": "^3.0",
         "barryvdh/laravel-dompdf": "^2.2",
         "devmarketer/easynav": "^1.0",
