@@ -183,6 +183,11 @@ class KuesionerController extends Controller
         }
     }
 
+    public function charts_all()
+    {
+        return $this->kuesioner_data();
+    }
+
     public function charts_ti()
     {
         $prodi = 'Teknik Informatika';
@@ -253,7 +258,7 @@ class KuesionerController extends Controller
         return $competency_data;
     }
 
-    public function kuesioner_data($prodi)
+    public function kuesioner_data($prodi = null)
     {
         $workStatus = Work::countWorkStatus($prodi);
         $averageMethod = Kuesioner_Tracer_Study::countAverageMethod($prodi);

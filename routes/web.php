@@ -57,6 +57,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Middleware Chart Tracer Study
     Route::controller(KuesionerController::class)->as('tracer-study.')->group(function () {
+        Route::get('charts_all', 'charts_all')->name('charts_all');
         Route::get('charts_ti', 'charts_ti')->name('charts_ti');
         Route::get('charts_tmj', 'charts_tmj')->name('charts_tmj');
         Route::get('charts_tmd', 'charts_tmd')->name('charts_tmd');

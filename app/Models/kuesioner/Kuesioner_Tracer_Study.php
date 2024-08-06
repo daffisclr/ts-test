@@ -40,7 +40,7 @@ class Kuesioner_Tracer_Study extends Model
         return $this->belongsTo(Alumni::class);
     }
 
-    public static function countAverageMethod(string $prodi)
+    public static function countAverageMethod(?string $prodi)
     {
 
         $result = DB::select("SELECT
@@ -55,9 +55,8 @@ class Kuesioner_Tracer_Study extends Model
 FROM
 	KUESIONER K
 LEFT JOIN ALUMNIS A ON
-	A.ID = K.ALUMNI_ID
-WHERE
-	A.PRODI = '$prodi'");
+	A.ID = K.ALUMNI_ID "
+            . ($prodi == null ? "" : "WHERE A.PRODI = '$prodi'"));
 
         if (!empty($result)) {
             $result = $result[0];
@@ -78,7 +77,7 @@ WHERE
         return null;
     }
 
-    public static function countEveryMethod(string $prodi, string $method)
+    public static function countEveryMethod(?string $prodi, string $method)
     {
 
         $result = DB::select("SELECT
@@ -87,11 +86,8 @@ WHERE
 FROM
 	KUESIONER K
 LEFT JOIN ALUMNIS A ON
-	A.ID = K.ALUMNI_ID
-WHERE
-	A.PRODI = '$prodi'
-GROUP BY
-	K.$method;");
+	A.ID = K.ALUMNI_ID " . ($prodi == null ? "" : " WHERE A.PRODI = '$prodi' ") .
+            " GROUP BY K.$method;");
 
         $status = [
             1, 2, 3, 4, 5
@@ -109,7 +105,9 @@ GROUP BY
             }
         }
 
-        usort($result, function($a, $b) {return strcmp($a->SCORE, $b->SCORE);});
+        usort($result, function ($a, $b) {
+            return strcmp($a->SCORE, $b->SCORE);
+        });
         return $result;
     }
 }

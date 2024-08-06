@@ -31,7 +31,7 @@ class Work_Hunt extends Model
         return $this->belongsTo(Work::class);
     }
 
-    public static function countWorkHunt(string $prodi)
+    public static function countWorkHunt(?string $prodi)
     {
         $result = DB::select("SELECT
                             	KWH.JOB_HUNT_METHOD,
@@ -43,11 +43,10 @@ class Work_Hunt extends Model
                             LEFT JOIN KUESIONER K ON
                             	K.ID = KW.TRACER_STUDY_ID
                             LEFT JOIN ALUMNIS A ON
-                            	A.ID = K.ALUMNI_ID
-                            WHERE
-                            	A.PRODI = '$prodi'
-                            GROUP BY
-                            	KWH.JOB_HUNT_METHOD;");
+                            	A.ID = K.ALUMNI_ID " .
+            ($prodi == null ? "" : " WHERE
+	A.PRODI = '$prodi' ") .
+            " GROUP BY KWH.JOB_HUNT_METHOD;");
 
         $status = [
             "Melalui iklan di koran/majalah, brosur",
