@@ -37,7 +37,7 @@ class Competency extends Model
         return $this->belongsTo(Work::class);
     }
 
-    public static function countCompetency(string $prodi, string $type, string $category)
+    public static function countCompetency(?string $prodi, string $type, string $category)
     {
         $result = DB::select("SELECT
                             	KC.$category AS SCORE,
@@ -51,9 +51,9 @@ class Competency extends Model
                             LEFT JOIN ALUMNIS A ON
                             	A.ID = K.ALUMNI_ID
                             WHERE
-                            	A.PRODI = '$prodi'
-                            	AND KC.`type` = '$type'
-                            GROUP BY
+                                KC.`type` = '$type' " .
+            ($prodi == null ? "" : " AND A.PRODI = '$prodi' ")
+            . " GROUP BY
                             	 KC.$category;");
 
         $status = [
@@ -73,7 +73,9 @@ class Competency extends Model
         }
 
 
-        usort($result, function($a, $b) {return strcmp($a->SCORE, $b->SCORE);});
+        usort($result, function ($a, $b) {
+            return strcmp($a->SCORE, $b->SCORE);
+        });
 
         return $result;
     }

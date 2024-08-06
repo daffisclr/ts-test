@@ -36,7 +36,8 @@ class Study extends Model
         return $this->belongsTo(Kuesioner_Tracer_Study::class);
     }
 
-    public static function countFurtherEducation(string $prodi, string $column, array $type) {
+    public static function countFurtherEducation(?string $prodi, string $column, array $type)
+    {
         $result = DB::select("SELECT 
                             KE.$column,
                             COUNT(KE.$column) AS JUMLAH
@@ -45,10 +46,10 @@ class Study extends Model
                             LEFT JOIN KUESIONER K ON
                             	K.ID = KE.TRACER_STUDY_ID
                             LEFT JOIN ALUMNIS A ON
-                            	A.ID = K.ALUMNI_ID
-                            WHERE
-                            	A.PRODI = '$prodi'
-                            	GROUP BY KE.$column ;");
+                            	A.ID = K.ALUMNI_ID " .
+            ($prodi == null ? "" : " WHERE
+	A.PRODI = '$prodi' ") .
+            " GROUP BY KE.$column ;");
 
         $statusMap = [];
         foreach ($result as $row) {

@@ -49,7 +49,7 @@ class Work extends Model
         return $this->belongsTo(Kuesioner_Tracer_Study::class);
     }
 
-    public static function countWorkStatus(string $prodi)
+    public static function countWorkStatus(?string $prodi)
     {
 
         $result = DB::select("SELECT
@@ -64,7 +64,7 @@ class Work extends Model
 FROM KUESIONER K 
 LEFT JOIN ALUMNIS A ON
     A.ID = K.ALUMNI_ID
-    WHERE A.PRODI = '$prodi'
+    " . ($prodi == null ? "" : "WHERE A.PRODI = '$prodi'") . " 
 GROUP BY
     K.ALUMNI_STATUS;");
 
@@ -91,7 +91,7 @@ GROUP BY
         return $result;
     }
 
-    public static function countJobPosition(string $prodi)
+    public static function countJobPosition(?string $prodi)
     {
 
         $result = DB::select("SELECT
@@ -113,10 +113,10 @@ FROM
 LEFT JOIN KUESIONER K ON
 	K.ID = KW.TRACER_STUDY_ID
 LEFT JOIN ALUMNIS A ON
-	A.ID = K.ALUMNI_ID
-WHERE
-	A.PRODI = '$prodi'
-	GROUP BY KW.JOB_POSITION;");
+	A.ID = K.ALUMNI_ID " .
+            ($prodi == null ? "" : " WHERE
+	A.PRODI = '$prodi' ") .
+            " GROUP BY KW.JOB_POSITION;");
 
         $status = [
             'Founder',
@@ -156,7 +156,7 @@ WHERE
         return $result;
     }
 
-    public static function countCompany(string $prodi, string $column, array $type, string $additional_condition = '')
+    public static function countCompany(?string $prodi, string $column, array $type, string $additional_condition = '')
     {
         $result = DB::select("SELECT 
 KW.$column,
@@ -166,11 +166,11 @@ FROM
 LEFT JOIN KUESIONER K ON
 	K.ID = KW.TRACER_STUDY_ID
 LEFT JOIN ALUMNIS A ON
-	A.ID = K.ALUMNI_ID
-WHERE
-	A.PRODI = '$prodi'
-    $additional_condition
-	GROUP BY KW.$column ;");
+	A.ID = K.ALUMNI_ID " .
+            ($prodi == null ? "" : " WHERE
+	A.PRODI = '$prodi' ") .
+            " $additional_condition
+            GROUP BY KW.$column ;");
 
         $statusMap = [];
         foreach ($result as $row) {
@@ -187,7 +187,7 @@ WHERE
         return $result;
     }
 
-    public static function countEveryCompetency(string $prodi, string $method)
+    public static function countEveryCompetency(?string $prodi, string $method)
     {
 
         $result = DB::select("SELECT

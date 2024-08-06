@@ -31,7 +31,7 @@ class Work_Compatibility extends Model
         return $this->belongsTo(Work::class);
     }
 
-    public static function countCompatibility(string $prodi)
+    public static function countCompatibility(?string $prodi)
     {
         $result = DB::select("SELECT
                             	KWC.COMPATIBILITY_TYPE,
@@ -43,11 +43,10 @@ class Work_Compatibility extends Model
                             LEFT JOIN KUESIONER K ON
                             	K.ID = KW.TRACER_STUDY_ID
                             LEFT JOIN ALUMNIS A ON
-                            	A.ID = K.ALUMNI_ID
-                            WHERE
-                            	A.PRODI = '$prodi'
-                            GROUP BY
-                            	KWC.COMPATIBILITY_TYPE;");
+                            	A.ID = K.ALUMNI_ID " .
+            ($prodi == null ? "" : " WHERE
+	A.PRODI = '$prodi' ") .
+            " GROUP BY KWC.COMPATIBILITY_TYPE;");
 
         $status = [
             'Pertanyaan tidak sesuai, pekerjaan saya saat ini sudah sesuai dengan pendidikan saya',
