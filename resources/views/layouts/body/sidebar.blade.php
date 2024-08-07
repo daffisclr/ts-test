@@ -22,7 +22,7 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    @if (auth()->user()->role == 'Admin')
+    @if (auth()->user()->role == 'Admin' || auth()->user()->role == 'KPS')
         <!-- Heading -->
         <div class="sidebar-heading">
             {{ __('Alumni') }}
@@ -36,29 +36,32 @@
             </a>
         </li>
 
-        <!-- Nav Item - Chart Alumni -->
-        <li class="nav-item {{ Nav::isRoute('alumni.chart') }}" id="chart alumni" >
-            <a class="nav-link" href="{{ route('alumni.chart') }}">
-                <i class="fa fa-pie-chart"></i>
-                <span>{{ __('Charts Alumni JTIK') }}</span>
-            </a>
-        </li>
+        @if (auth()->user()->role == 'Admin')
+            <!-- Nav Item - Chart Alumni -->
+            <li class="nav-item {{ Nav::isRoute('alumni.chart') }}" id="chart alumni">
+                <a class="nav-link" href="{{ route('alumni.chart') }}">
+                    <i class="fa fa-pie-chart"></i>
+                    <span>{{ __('Charts Alumni JTIK') }}</span>
+                </a>
+            </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider">
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            {{ __('Tracer Study') }}
-        </div>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                {{ __('Tracer Study') }}
+            </div>
 
-        <!-- Nav Item - Chart Tracer Study -->
-        <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+            <!-- Nav Item - Chart Tracer Study -->
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-bar-chart"></i>
                     <span>Hasl Kuesioner Tracer Study</span>
                 </a>
-                <div id="collapseUtilities" class="collapse show" aria-labelledby="headingUtilities" data-parent="#accordionSidebar" style="">
+                <div id="collapseUtilities" class="collapse show" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar" style="">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Program Studi:</h6>
                         <a class="collapse-item" href="{{ route('tracer-study.charts_all') }}">All Program</a>
@@ -71,12 +74,12 @@
             </li>
 
 
-        {{-- <!-- Heading -->
+            {{-- <!-- Heading -->
         <div class="sidebar-heading">
             {{ __('Pengguna Alumni') }}
         </div> --}}
 
-        {{-- <!-- Nav Item - Invite Pengguna Alumni -->
+            {{-- <!-- Nav Item - Invite Pengguna Alumni -->
         <li class="nav-item {{ Nav::isRoute('pengguna-alumni.invitation') }}">
             <a class="nav-link" href="{{ route('pengguna-alumni.invitation') }}">
                 <i class="fa-solid fa-envelopes-bulk"></i>
@@ -92,7 +95,9 @@
             </a>
         </li> --}}
 
-        <!-- Divider -->
+            <!-- Divider -->
+        @endif
+
         <hr class="sidebar-divider">
     @endif
 
