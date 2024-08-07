@@ -9,6 +9,7 @@ use App\Models\kuesioner\Work;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Number;
 
 class HomeController extends Controller
 {
@@ -41,9 +42,9 @@ class HomeController extends Controller
 
         $count_ts = DB::table('kuesioner')->count();
 
-        $pendapatan = DB::table('kuesioner_work')->avg('salary');
+        $pendapatan = Number::currency(DB::table('kuesioner_work')->avg('salary'), 'IDR');
 
-        $masa_tunggu = DB::table('kuesioner_work')->avg('job_acquired_time');
+        $masa_tunggu = round(DB::table('kuesioner_work')->avg('job_acquired_time'));
 
         $widget = [
             'users' => $users,
