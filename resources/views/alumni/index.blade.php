@@ -74,31 +74,38 @@
                                                 style="width: 67px;">Action</th>
                                         </tr>
                                     </thead>
-                                    @foreach ($data as $data)
+                                    @foreach ($data as $user)
                                         <tbody>
                                             <tr class="odd">
                                                 <th>{{ $loop->iteration }}</th>
-                                                <td>{{ $data->name }}</td>
-                                                <td>{{ $data->username }}</td>
-                                                <td>{{ $data->alumni != null ? $data->alumni->prodi : '-' }}</td>
-                                                <td>{{ $data->alumni != null ? $data->alumni->jenjang : '-' }}</td>
-                                                <td>{{ $data->alumni != null ? $data->alumni->tahun_masuk : '-' }}</td>
-                                                <td>{{ $data->alumni != null ? $data->alumni->tahun_lulus : '-' }}</td>
+                                                <td>{{ $user->name }}</td>
+                                                <td>{{ $user->username }}</td>
+                                                <td>{{ $user->alumni != null ? $user->alumni->prodi : '-' }}</td>
+                                                <td>{{ $user->alumni != null ? $user->alumni->jenjang : '-' }}</td>
+                                                <td>{{ $user->alumni != null ? $user->alumni->tahun_masuk : '-' }}</td>
+                                                <td>{{ $user->alumni != null ? $user->alumni->tahun_lulus : '-' }}</td>
                                                 <td>
-                                                    <button class="btn btn-primary btn-sm" data-toggle="modal"
-                                                        data-target="#modal-detail-{{ $data->id }}">
-                                                        <i class="fas fa-eye"></i>
-                                                    </button>
-
-                                                    <br>
-                                                    {{-- Liat Histori Form Tracer Study --}}
-                                                    <a class="btn btn-warning btn-sm" href="{{ URL::route('alumni.view_kuesioner', [$data->id]) }}">
-                                                        <i class="fa-regular fa-clipboard"></i>
-                                                    </a>
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="col p-0">
+                                                            <button class="btn btn-primary btn-sm" data-toggle="modal"
+                                                                data-target="#modal-detail-{{ $user->id }}">
+                                                                <i class="fas fa-eye"></i>
+                                                            </button>
+                                                        </div>
+                                                        @if ($user->kuesioner)
+                                                        <div class="col p-0">
+                                                            {{-- Liat Histori Form Tracer Study --}}
+                                                            <a class="btn btn-warning btn-sm"
+                                                                href="{{ URL::route('alumni.view_kuesioner', [$user->id]) }}">
+                                                                <i class="fa-regular fa-clipboard"></i>
+                                                            </a>
+                                                        </div>
+                                                        @endif
+                                                    </div>
                                                 </td>
                                             </tr>
                                         </tbody>
-                                        <div class="modal fade" id="modal-detail-{{ $data->id }}" tabindex="-1"
+                                        <div class="modal fade" id="modal-detail-{{ $user->id }}" tabindex="-1"
                                             role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
@@ -115,32 +122,32 @@
                                                             <div class="mb-3">
                                                                 <label for="lead_id" class="col-form-label">Nama
                                                                     Alumni:</label>
-                                                                <input value="{{ $data->name }}" type="text"
+                                                                <input value="{{ $user->name }}" type="text"
                                                                     class="form-control" id="lead_id" readonly>
                                                             </div>
                                                             <div class="mb-3">
                                                                 <label for="lead_id" class="col-form-label">NIM
                                                                     Alumni:</label>
-                                                                <input value="{{ $data->username }}" type="text"
+                                                                <input value="{{ $user->username }}" type="text"
                                                                     class="form-control" id="lead_id" readonly>
                                                             </div>
                                                             <div class="mb-3">
                                                                 <label for="lead_id" class="col-form-label">Email
                                                                     Alumni:</label>
-                                                                <input value="{{ $data->email }}" type="text"
+                                                                <input value="{{ $user->email }}" type="text"
                                                                     class="form-control" id="lead_id" readonly>
                                                             </div>
                                                             <div class="mb-3">
                                                                 <label for="lead_id" class="col-form-label">Nomor Telpon
                                                                     Alumni:</label>
-                                                                <input value="{{ $data->phone_number }}" type="text"
+                                                                <input value="{{ $user->phone_number }}" type="text"
                                                                     class="form-control" id="lead_id" readonly>
                                                             </div>
                                                             <div class="mb-3">
                                                                 <label for="lead_id" class="col-form-label">Prodi
                                                                     Alumni:</label>
                                                                 <input
-                                                                    value="{{ $data->alumni != null ? $data->alumni->prodi : '-' }}"
+                                                                    value="{{ $user->alumni != null ? $user->alumni->prodi : '-' }}"
                                                                     type="text" class="form-control" id="lead_id"
                                                                     readonly>
                                                             </div>
@@ -148,7 +155,7 @@
                                                                 <label for="lead_id" class="col-form-label">Jenjang
                                                                     Alumni:</label>
                                                                 <input
-                                                                    value="{{ $data->alumni != null ? $data->alumni->jenjang : '-' }}"
+                                                                    value="{{ $user->alumni != null ? $user->alumni->jenjang : '-' }}"
                                                                     type="text" class="form-control" id="lead_id"
                                                                     readonly>
                                                             </div>
@@ -156,7 +163,7 @@
                                                                 <label for="lead_id" class="col-form-label">Jenis Kelamin
                                                                     Alumni:</label>
                                                                 <input
-                                                                    value="{{ $data->alumni != null ? $data->alumni->jenis_kelamin : '-' }}"
+                                                                    value="{{ $user->alumni != null ? $user->alumni->jenis_kelamin : '-' }}"
                                                                     type="text" class="form-control" id="lead_id"
                                                                     readonly>
                                                             </div>
@@ -164,7 +171,7 @@
                                                                 <label for="lead_id" class="col-form-label">Agama
                                                                     Alumni:</label>
                                                                 <input
-                                                                    value="{{ $data->alumni != null ? $data->alumni->agama : '-' }}"
+                                                                    value="{{ $user->alumni != null ? $user->alumni->agama : '-' }}"
                                                                     type="text" class="form-control" id="lead_id"
                                                                     readonly>
                                                             </div>
@@ -172,7 +179,7 @@
                                                                 <label for="lead_id"
                                                                     class="col-form-label">Angkatan:</label>
                                                                 <input
-                                                                    value="{{ $data->alumni != null ? $data->alumni->tahun_masuk : '-' }}"
+                                                                    value="{{ $user->alumni != null ? $user->alumni->tahun_masuk : '-' }}"
                                                                     type="text" class="form-control" id="lead_id"
                                                                     readonly>
                                                             </div>
@@ -180,7 +187,7 @@
                                                                 <label for="lead_id"
                                                                     class="col-form-label">Lulusan:</label>
                                                                 <input
-                                                                    value="{{ $data->alumni != null ? $data->alumni->tahun_lulus : '-' }}"
+                                                                    value="{{ $user->alumni != null ? $user->alumni->tahun_lulus : '-' }}"
                                                                     type="text" class="form-control" id="lead_id"
                                                                     readonly>
                                                             </div>
@@ -204,4 +211,3 @@
 
     </div>
 @endsection
-

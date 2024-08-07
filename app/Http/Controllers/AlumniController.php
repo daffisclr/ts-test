@@ -12,8 +12,8 @@ class AlumniController extends Controller
     public function index()
     {
 
-        $data = User::with('alumni')->where('role', 'Alumni')->orderBy('id', 'desc')->get();
-
+        $data = User::with('alumni.tracer_study')->where('role', 'Alumni')->orderBy('id', 'desc')->get();
+        
         return view('alumni.index', compact('data'));
     }
 
