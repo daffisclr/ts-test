@@ -30,9 +30,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = User::where('role','Alumni')->count();
+        $users = User::where('role', 'Alumni')->count();
 
-        $alumni_ti = Alumni::where('prodi','Teknik Informatika')->count();
+        $alumni_ti = Alumni::where('prodi', 'Teknik Informatika')->count();
 
         $alumni_tmj = Alumni::where('prodi', 'Teknik Multimedia dan Jaringan')->count();
 
@@ -42,7 +42,8 @@ class HomeController extends Controller
 
         $count_ts = DB::table('kuesioner')->count();
 
-        $pendapatan = Number::currency(DB::table('kuesioner_work')->avg('salary'), 'IDR');
+        $pendapatan = DB::table('kuesioner_work')->avg('salary');
+        $pendapatan_format = Number::currency($pendapatan ? $pendapatan : 0, 'IDR');
 
         $masa_tunggu = round(DB::table('kuesioner_work')->avg('job_acquired_time'));
 
@@ -54,7 +55,7 @@ class HomeController extends Controller
             'alumni_tkj' => $alumni_tkj,
             'count_ts' => $count_ts,
             'masa_tunggu' => $masa_tunggu,
-            'pendapatan' => $pendapatan
+            'pendapatan' => $pendapatan_format
             //...
         ];
         $count_answer = 0;

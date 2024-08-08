@@ -14,6 +14,7 @@ class Kuesioner_Tracer_Study extends Model
     use  HasFactory, Notifiable;
 
     protected $guard = "user";
+    protected $table = 'kuesioner'; // Specify the table name
 
     /**
      * The attributes that are mass assignable.

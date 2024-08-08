@@ -56,7 +56,7 @@
                                 @endif
                             @endif
                         @else
-                            @if (auth()->user()->role != 'Admin')
+                            @if (auth()->user()->role == 'Alumni')
                                 <a href="{{ route('profile') }}" class="btn btn-primary" role="button">LENGKAPI DATA</a>
                             @endif
                         @endif
