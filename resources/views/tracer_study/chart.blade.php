@@ -4,12 +4,15 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
+
+        @if (auth()->user()->role == 'Admin')
         <h1 class="h3 mb-2 text-gray-800">Hasil Kuesioner Tracer Study</h1>
         <a href="{{ route('alumni.excel') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
             <i class="fas fa-download fa-sm text-white-50"></i> Generate Excel
         </a>
         <br>
         <hr>
+        @endif
 
         @if (session('success'))
             <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
