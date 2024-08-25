@@ -84,7 +84,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
             </div>
             <div class="card-body">
-                <div id="company-type" style="width: 100%;height:400px;"></div>
+                <div id="company-type-1" style="width: 100%;height:400px;"></div>
             </div>
         </div>
 
@@ -93,7 +93,34 @@
                 <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
             </div>
             <div class="card-body">
-                <div id="education" style="width: 100%;height:400px;"></div>
+                <div id="company-type-2" style="width: 100%;height:400px;"></div>
+            </div>
+        </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
+            </div>
+            <div class="card-body">
+                <div id="education-1" style="width: 100%;height:400px;"></div>
+            </div>
+        </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
+            </div>
+            <div class="card-body">
+                <div id="education-2" style="width: 100%;height:400px;"></div>
+            </div>
+        </div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Chart Alumni Berdasarkan Program Studi</h6>
+            </div>
+            <div class="card-body">
+                <div id="education-3" style="width: 100%;height:400px;"></div>
             </div>
         </div>
 
@@ -170,8 +197,14 @@
             echarts.init(document.getElementById('job-position-1')),
             echarts.init(document.getElementById('job-position-2'))
         ];
-        var companyTypeChart = echarts.init(document.getElementById('company-type'));
-        var educationChart = echarts.init(document.getElementById('education'));
+        var companyTypeChart = [] 
+        
+        companyTypeChart[0] = echarts.init(document.getElementById('company-type-1'));
+        companyTypeChart[1] = echarts.init(document.getElementById('company-type-2'));
+        var educationChart = []
+         educationChart[0] = echarts.init(document.getElementById('education-1'));
+         educationChart[1] = echarts.init(document.getElementById('education-2'));
+         educationChart[2] = echarts.init(document.getElementById('education-3'));
         var compatibilityChart = echarts.init(document.getElementById('compatibility'));
         var workHuntChart = echarts.init(document.getElementById('work-hunt'));
         var competencyWorkChart = echarts.init(document.getElementById('competency-work'));
@@ -392,7 +425,9 @@
             ]
         };
 
-        var companyTypeOption = {
+        var companyTypeOption = []
+        
+       companyTypeOption[0] = {
             title: {
                 text: 'Jumlah Alumni yang Bekerja',
                 left: 'center'
@@ -400,10 +435,7 @@
             dataset: [{
                 dimensions: ['COMPANY_TYPE', 'JUMLAH'],
                 source: companyTypeData
-            }, {
-                dimensions: ['COMPANY_LEVEL', 'JUMLAH'],
-                source: companyLevelData
-            }, ],
+            } ],
             tooltip: {
                 show: true,
                 formatter: (data) => {
@@ -417,25 +449,46 @@
             series: [{
                     name: 'Jumlah Alumni Bekerja Berdasarkan Tipe Perusahaan',
                     type: 'pie',
-                    center: ['25%', '50%'],
                     label: {
                         formatter: function(params) {
                             if (params.name == 5 || params.name == "5") return 'Lainnya'
                             return params.name
                         }
                     },
-                    datasetIndex: 0
                 },
+            ]
+        };
+
+        companyTypeOption[1] = {
+            title: {
+                text: 'Jumlah Alumni yang Bekerja',
+                left: 'center'
+            },
+            dataset: [ {
+                dimensions: ['COMPANY_LEVEL', 'JUMLAH'],
+                source: companyLevelData
+            }, ],
+            tooltip: {
+                show: true,
+                formatter: (data) => {
+                    let format = `<span>${data.seriesName}</span>
+                                            <br />
+                                            <div>${data.marker} ${data.name} : ${data.percent} %</div>`;
+
+                    return format;
+                }
+            },
+            series: [
                 {
                     name: 'Jumlah Alumni Bekerja Berdasarkan Tingkat Perusahaan',
                     type: 'pie',
-                    center: ['75%', '50%'],
-                    datasetIndex: 1
                 }
             ]
         };
 
-        var educationOption = {
+        var educationOption = [];
+
+        educationOption[0] = {
             title: {
                 text: 'Jumlah Alumni yang Melanjutkan Studi',
                 left: 'center'
@@ -443,13 +496,7 @@
             dataset: [{
                 dimensions: ['LOCATION', 'JUMLAH'],
                 source: educationLocation
-            }, {
-                dimensions: ['PAYMENT_TYPE', 'JUMLAH'],
-                source: educationPayment
-            }, {
-                dimensions: ['REASONS', 'JUMLAH'],
-                source: educationReason
-            }, ],
+            } ],
             tooltip: {
                 show: true,
                 formatter: (data) => {
@@ -463,20 +510,60 @@
             series: [{
                     name: 'Lokasi Studi Alumni',
                     type: 'pie',
-                    center: ['20%', '50%'],
-                    datasetIndex: 0
                 },
+            ]
+        };
+
+        educationOption[1] = {
+            title: {
+                text: 'Jumlah Alumni yang Melanjutkan Studi',
+                left: 'center'
+            },
+            dataset: [ {
+                dimensions: ['PAYMENT_TYPE', 'JUMLAH'],
+                source: educationPayment
+            },],
+            tooltip: {
+                show: true,
+                formatter: (data) => {
+                    let format = `<span>${data.seriesName}</span>
+                                            <br />
+                                            <div>${data.marker} ${data.name} : ${data.percent} %</div>`;
+
+                    return format;
+                }
+            },
+            series: [
                 {
                     name: 'Pembiayaan Studi Alumni',
                     type: 'pie',
-                    center: ['50%', '50%'],
-                    datasetIndex: 1
-                },
+                }
+            ]
+        };
+
+        educationOption[2] = {
+            title: {
+                text: 'Jumlah Alumni yang Melanjutkan Studi',
+                left: 'center'
+            },
+            dataset: [{
+                dimensions: ['REASONS', 'JUMLAH'],
+                source: educationReason
+            }, ],
+            tooltip: {
+                show: true,
+                formatter: (data) => {
+                    let format = `<span>${data.seriesName}</span>
+                                            <br />
+                                            <div>${data.marker} ${data.name} : ${data.percent} %</div>`;
+
+                    return format;
+                }
+            },
+            series: [
                 {
                     name: 'Pembiayaan Studi Alumni',
                     type: 'pie',
-                    center: ['80%', '50%'],
-                    datasetIndex: 2
                 }
             ]
         };
@@ -534,9 +621,6 @@
                 type: 'pie',
             }, ]
         };
-
-        console.log(work, graduation);
-
 
         var competencyWorkOption = {
             title: {
@@ -690,8 +774,11 @@
         positionChart.forEach((element, index) => {
             element.setOption(positionOption[index]);
         });
-        companyTypeChart.setOption(companyTypeOption);
-        educationChart.setOption(educationOption);
+        companyTypeChart[0].setOption(companyTypeOption[0]);
+        companyTypeChart[1].setOption(companyTypeOption[1]);
+        educationChart[0].setOption(educationOption[0]);
+        educationChart[1].setOption(educationOption[1]);
+        educationChart[2].setOption(educationOption[2]);
         compatibilityChart.setOption(compatibilityOption);
         workHuntChart.setOption(workHuntOption);
         competencyWorkChart.setOption(competencyWorkOption);
