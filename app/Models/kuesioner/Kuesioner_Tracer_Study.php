@@ -99,11 +99,11 @@ LEFT JOIN ALUMNIS A ON
 
         foreach ($methods as $key => $value) {
             $row = DB::select("SELECT
-                ROUND((COUNT(CASE WHEN K.$value->name = 1 THEN 1 END)/ $totalRows * 100),0) AS SCORE_1,
-                ROUND((COUNT(CASE WHEN K.$value->name = 2 THEN 1 END)/ $totalRows * 100),0) AS SCORE_2,
-                ROUND((COUNT(CASE WHEN K.$value->name = 3 THEN 1 END)/ $totalRows * 100),0) AS SCORE_3,
-                ROUND((COUNT(CASE WHEN K.$value->name = 4 THEN 1 END)/ $totalRows * 100),0) AS SCORE_4,
-                ROUND((COUNT(CASE WHEN K.$value->name = 5 THEN 1 END)/ $totalRows * 100),0) AS SCORE_5
+                ROUND(COUNT(CASE WHEN K.$value->name = 1 THEN 1 END)) AS SCORE_1,
+                ROUND(COUNT(CASE WHEN K.$value->name = 2 THEN 1 END)) AS SCORE_2,
+                ROUND(COUNT(CASE WHEN K.$value->name = 3 THEN 1 END)) AS SCORE_3,
+                ROUND(COUNT(CASE WHEN K.$value->name = 4 THEN 1 END)) AS SCORE_4,
+                ROUND(COUNT(CASE WHEN K.$value->name = 5 THEN 1 END)) AS SCORE_5
             FROM
                 KUESIONER K
             LEFT JOIN ALUMNIS A ON

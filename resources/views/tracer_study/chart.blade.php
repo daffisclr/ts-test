@@ -6,12 +6,12 @@
         <!-- Page Heading -->
 
         @if (auth()->user()->role == 'Admin')
-        <h1 class="h3 mb-2 text-gray-800">Hasil Kuesioner Tracer Study</h1>
-        <a href="{{ route('alumni.excel') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-            <i class="fas fa-download fa-sm text-white-50"></i> Generate Excel
-        </a>
-        <br>
-        <hr>
+            <h1 class="h3 mb-2 text-gray-800">Hasil Kuesioner Tracer Study</h1>
+            <a href="{{ route('alumni.excel') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                <i class="fas fa-download fa-sm text-white-50"></i> Generate Excel
+            </a>
+            <br>
+            <hr>
         @endif
 
         @if (session('success'))
@@ -197,14 +197,14 @@
             echarts.init(document.getElementById('job-position-1')),
             echarts.init(document.getElementById('job-position-2'))
         ];
-        var companyTypeChart = [] 
-        
+        var companyTypeChart = []
+
         companyTypeChart[0] = echarts.init(document.getElementById('company-type-1'));
         companyTypeChart[1] = echarts.init(document.getElementById('company-type-2'));
         var educationChart = []
-         educationChart[0] = echarts.init(document.getElementById('education-1'));
-         educationChart[1] = echarts.init(document.getElementById('education-2'));
-         educationChart[2] = echarts.init(document.getElementById('education-3'));
+        educationChart[0] = echarts.init(document.getElementById('education-1'));
+        educationChart[1] = echarts.init(document.getElementById('education-2'));
+        educationChart[2] = echarts.init(document.getElementById('education-3'));
         var compatibilityChart = echarts.init(document.getElementById('compatibility'));
         var workHuntChart = echarts.init(document.getElementById('work-hunt'));
         var competencyWorkChart = echarts.init(document.getElementById('competency-work'));
@@ -247,17 +247,6 @@
             },
             tooltip: {
                 show: true,
-                trigger: "axis",
-                formatter: (data) => {
-                    let format = `<span>${data[0].name}</span><br />`;
-
-                    data.forEach(element => {
-                        format +=
-                            `<div>${element.marker} ${element.seriesName} : ${element.value[element.seriesName]} %</div>`
-                    });
-
-                    return format;
-                }
             },
             legend: {
                 orient: 'vertical',
@@ -327,7 +316,8 @@
             legend: {
                 orient: 'vertical',
                 show: true,
-                right: 20
+                right: 20,
+                top: 25,
             },
             tooltip: {
                 show: true,
@@ -426,8 +416,8 @@
         };
 
         var companyTypeOption = []
-        
-       companyTypeOption[0] = {
+
+        companyTypeOption[0] = {
             title: {
                 text: 'Jumlah Alumni yang Bekerja',
                 left: 'center'
@@ -435,7 +425,14 @@
             dataset: [{
                 dimensions: ['COMPANY_TYPE', 'JUMLAH'],
                 source: companyTypeData
-            } ],
+            }],
+            legend: {
+                type: 'scroll',
+                orient: 'vertical',
+                right: 20,
+                top: 20,
+                bottom: 20,
+            },
             tooltip: {
                 show: true,
                 formatter: (data) => {
@@ -447,16 +444,15 @@
                 }
             },
             series: [{
-                    name: 'Jumlah Alumni Bekerja Berdasarkan Tipe Perusahaan',
-                    type: 'pie',
-                    label: {
-                        formatter: function(params) {
-                            if (params.name == 5 || params.name == "5") return 'Lainnya'
-                            return params.name
-                        }
-                    },
+                name: 'Jumlah Alumni Bekerja Berdasarkan Tipe Perusahaan',
+                type: 'pie',
+                label: {
+                    formatter: function(params) {
+                        if (params.name == 5 || params.name == "5") return 'Lainnya'
+                        return params.name
+                    }
                 },
-            ]
+            }, ]
         };
 
         companyTypeOption[1] = {
@@ -464,10 +460,15 @@
                 text: 'Jumlah Alumni yang Bekerja',
                 left: 'center'
             },
-            dataset: [ {
+            dataset: [{
                 dimensions: ['COMPANY_LEVEL', 'JUMLAH'],
                 source: companyLevelData
             }, ],
+            legend: {
+                orient: 'vertical',
+                show: true,
+                right: 20
+            },
             tooltip: {
                 show: true,
                 formatter: (data) => {
@@ -478,12 +479,10 @@
                     return format;
                 }
             },
-            series: [
-                {
-                    name: 'Jumlah Alumni Bekerja Berdasarkan Tingkat Perusahaan',
-                    type: 'pie',
-                }
-            ]
+            series: [{
+                name: 'Jumlah Alumni Bekerja Berdasarkan Tingkat Perusahaan',
+                type: 'pie',
+            }]
         };
 
         var educationOption = [];
@@ -496,7 +495,12 @@
             dataset: [{
                 dimensions: ['LOCATION', 'JUMLAH'],
                 source: educationLocation
-            } ],
+            }],
+            legend: {
+                orient: 'vertical',
+                show: true,
+                right: 20
+            },
             tooltip: {
                 show: true,
                 formatter: (data) => {
@@ -508,10 +512,9 @@
                 }
             },
             series: [{
-                    name: 'Lokasi Studi Alumni',
-                    type: 'pie',
-                },
-            ]
+                name: 'Lokasi Studi Alumni',
+                type: 'pie',
+            }, ]
         };
 
         educationOption[1] = {
@@ -519,10 +522,15 @@
                 text: 'Jumlah Alumni yang Melanjutkan Studi',
                 left: 'center'
             },
-            dataset: [ {
+            dataset: [{
                 dimensions: ['PAYMENT_TYPE', 'JUMLAH'],
                 source: educationPayment
-            },],
+            }, ],
+            legend: {
+                orient: 'vertical',
+                show: true,
+                right: 20
+            },
             tooltip: {
                 show: true,
                 formatter: (data) => {
@@ -533,12 +541,10 @@
                     return format;
                 }
             },
-            series: [
-                {
-                    name: 'Pembiayaan Studi Alumni',
-                    type: 'pie',
-                }
-            ]
+            series: [{
+                name: 'Pembiayaan Studi Alumni',
+                type: 'pie',
+            }]
         };
 
         educationOption[2] = {
@@ -550,6 +556,11 @@
                 dimensions: ['REASONS', 'JUMLAH'],
                 source: educationReason
             }, ],
+            legend: {
+                orient: 'vertical',
+                show: true,
+                right: 20
+            },
             tooltip: {
                 show: true,
                 formatter: (data) => {
@@ -560,12 +571,10 @@
                     return format;
                 }
             },
-            series: [
-                {
-                    name: 'Pembiayaan Studi Alumni',
-                    type: 'pie',
-                }
-            ]
+            series: [{
+                name: 'Pembiayaan Studi Alumni',
+                type: 'pie',
+            }]
         };
 
         var compatibilityOption = {
