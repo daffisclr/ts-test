@@ -243,7 +243,6 @@
         var methodOption = {
             title: {
                 text: 'Penilaian Methodologi Pengajaran',
-                subtext: 'Jumlah Responden: ' + ALUMNI
             },
             tooltip: {
                 show: true,
@@ -307,7 +306,6 @@
         positionOption[0] = {
             title: {
                 text: 'Jabatan Alumni',
-                subtext: 'Jumlah Responden: ' + ALUMNI
             },
             dataset: {
                 dimensions: ['POSITION', 'JUMLAH'],
@@ -338,7 +336,6 @@
         positionOption[1] = {
             title: {
                 text: 'Rata-rata Upah Alumni per Jabatan',
-                subtext: 'Jumlah Responden: ' + ALUMNI
             },
             tooltip: {
                 show: true
@@ -370,7 +367,6 @@
         positionOption[2] = {
             title: {
                 text: 'Rata-rata Alumni Mencari Pekerjaan',
-                subtext: 'Jumlah Responden: ' + ALUMNI
             },
             tooltip: {
                 show: true
@@ -634,21 +630,10 @@
         var competencyWorkOption = {
             title: {
                 text: 'Penilaian Kompetensi Pada Pekerjaan',
-                subtext: 'Jumlah Responden: ' + ALUMNI
             },
             tooltip: {
                 show: true,
                 trigger: "axis",
-                formatter: (data) => {
-                    let format = `<span>${data[0].name}</span><br />`;
-
-                    data.forEach(element => {
-                        format +=
-                            `<div>${element.marker} ${element.seriesName} : ${element.value[element.seriesName]} %</div>`
-                    });
-
-                    return format;
-                }
             },
             legend: {
                 orient: 'vertical',
@@ -707,21 +692,10 @@
         var competencyGraduationOption = {
             title: {
                 text: 'Penilaian Kompetensi Pada Saat Lulus',
-                subtext: 'Jumlah Responden: ' + ALUMNI
             },
             tooltip: {
                 show: true,
                 trigger: "axis",
-                formatter: (data) => {
-                    let format = `<span>${data[0].name}</span><br />`;
-
-                    data.forEach(element => {
-                        format +=
-                            `<div>${element.marker} ${element.seriesName} : ${element.value[element.seriesName]} %</div>`
-                    });
-
-                    return format;
-                }
             },
             legend: {
                 orient: 'horizontal',

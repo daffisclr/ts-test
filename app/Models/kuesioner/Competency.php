@@ -66,11 +66,11 @@ class Competency extends Model
 
         foreach ($categories as $key => $value) {
             $row = DB::select("SELECT
-                ROUND(COUNT(CASE WHEN KC.$value->name = 1 THEN 1 END)/ ".($work_count && $graduation_count ? ($type == "work" ? $work_count : $graduation_count) : 0)." * 100) AS SCORE_1,
-                ROUND(COUNT(CASE WHEN KC.$value->name = 2 THEN 1 END)/ ".($work_count && $graduation_count ? ($type == "work" ? $work_count : $graduation_count) : 0)." * 100) AS SCORE_2,
-                ROUND(COUNT(CASE WHEN KC.$value->name = 3 THEN 1 END)/ ".($work_count && $graduation_count ? ($type == "work" ? $work_count : $graduation_count) : 0)." * 100) AS SCORE_3,
-                ROUND(COUNT(CASE WHEN KC.$value->name = 4 THEN 1 END)/ ".($work_count && $graduation_count ? ($type == "work" ? $work_count : $graduation_count) : 0)." * 100) AS SCORE_4,
-                ROUND(COUNT(CASE WHEN KC.$value->name = 5 THEN 1 END)/ ".($work_count && $graduation_count ? ($type == "work" ? $work_count : $graduation_count) : 0)." * 100) AS SCORE_5
+                ROUND(COUNT(CASE WHEN KC.$value->name = 1 THEN 1 END)) AS SCORE_1,
+                ROUND(COUNT(CASE WHEN KC.$value->name = 2 THEN 1 END)) AS SCORE_2,
+                ROUND(COUNT(CASE WHEN KC.$value->name = 3 THEN 1 END)) AS SCORE_3,
+                ROUND(COUNT(CASE WHEN KC.$value->name = 4 THEN 1 END)) AS SCORE_4,
+                ROUND(COUNT(CASE WHEN KC.$value->name = 5 THEN 1 END)) AS SCORE_5
                 FROM
                 	KUESIONER_COMPETENCY KC
                 LEFT JOIN KUESIONER_WORK KW ON
