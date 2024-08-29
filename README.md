@@ -1,23 +1,8 @@
 # Final Project - Daffina Sacalaros
 
-## Requirements
+Project Tracer Study Berbasis Website With Laravel Framework.
 
-- PHP >= 8.2
-- Ctype PHP Extension
-- cURL PHP Extension
-- DOM PHP Extension
-- Fileinfo PHP Extension
-- Filter PHP Extension
-- Hash PHP Extension
-- Mbstring PHP Extension
-- OpenSSL PHP Extension
-- PCRE PHP Extension
-- PDO PHP Extension
-- Session PHP Extension
-- Tokenizer PHP Extension
-- XML PHP Extension
-
-## Installation
+## Cara Instalasi
 
 - Clone the repo and `cd` into it
 - Run `composer install`
